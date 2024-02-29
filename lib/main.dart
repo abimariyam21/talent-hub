@@ -1,14 +1,21 @@
 
 
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/home2.dart';
 import 'package:flutter_application_1/add.dart';
+import 'package:flutter_application_1/addhome.dart';
+import 'package:flutter_application_1/cart.dart';
 import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/home0.dart';
 import 'package:flutter_application_1/imagepicker.dart';
 import 'package:flutter_application_1/list.dart';
 import 'package:flutter_application_1/login.dart';
+import 'package:flutter_application_1/logo.dart';
 import 'package:flutter_application_1/notification.dart';
+import 'package:flutter_application_1/order.dart';
 import 'package:flutter_application_1/page1.dart';
+import 'package:flutter_application_1/page2.dart';
 import 'package:flutter_application_1/profile.dart';
 import 'package:flutter_application_1/rating.dart';
 
@@ -29,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ImagePickerPage(),
+      home: Home2(),
     );
   }
 }

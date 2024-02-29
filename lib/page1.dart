@@ -31,38 +31,68 @@ class _Page1State extends State<Page1> {
                 ),
                      ),
                    ),
+                   Container(
+                     child: Column(
+                          children:[ Text('Pencil drawing'),
+                                  ]),
+                   ),
+                    Container(
+              child:SizedBox(
+                height: 150,
+                width: 150,
+                child: Padding(
+                  padding:const EdgeInsets.only(top:30,left: 70),
+                  child: Image.asset('picture/oil.webp'),
+                ),
+              ),
+            ),    
+                           Container(
+                     child: Column(
+                          children:[ Text('Oil painting'),
+                                  ]),
+                   ),
              ]
            ),
-             Container(
-          child:SizedBox(
-            height: 150,
-            width: 150,
-            child: Padding(
-              padding:const EdgeInsets.only(top:30,left: 70),
-              child: Image.asset('picture/glass_paint.webp'),
+             Column(
+               children: [
+                 Row(
+                   children: [
+                     Container(
+                               child:SizedBox(
+                                 height: 150,
+                                 width: 150,
+                                 child: Padding(
+                      padding:const EdgeInsets.only(top:30,left: 70),
+                      child: Image.asset('picture/glass_paint.webp'),
+                                 ),
+                               ),
+                             ),
+                                                Container(
+                     child: Column(
+                          children:[ Text('Glass painting'),
+                                  ]),
+                   ),
+                              Container(
+              child:SizedBox(
+                height: 160,
+                width: 160,
+                child: Padding(
+                  padding:const EdgeInsets.only(top:30,left: 70),
+                  child: Image.asset('picture/watercolor.jpg'),
+                ),
+              ),
             ),
-          ),
-        ),
-        Container(
-          child:SizedBox(
-            height: 150,
-            width: 150,
-            child: Padding(
-              padding:const EdgeInsets.only(top:30,left: 70),
-              child: Image.asset('picture/watercolor.jpg'),
-            ),
-          ),
-        ),
-        Container(
-          child:SizedBox(
-            height: 150,
-            width: 150,
-            child: Padding(
-              padding:const EdgeInsets.only(top:30,left: 70),
-              child: Image.asset('picture/oil.webp'),
-            ),
-          ),
-        ),
+                               Container(
+                     child: Column(
+                          children:[ Text('Water color painting'),
+                                  ]),
+                   ),
+                   ],
+                 ),
+               ],
+             ),
+       
+        
          ],
        ), 
 
