@@ -14,7 +14,7 @@ class _Page2State extends State<Page2> {
       appBar:AppBar(
         title:Text('Pencil Drawings'),
         centerTitle: true,
-        backgroundColor: Colors.red[100],
+        backgroundColor: Color.fromARGB(255, 169, 186, 203),
         leading: Icon(Icons.close),
        ),
         body:Column(
@@ -23,10 +23,10 @@ class _Page2State extends State<Page2> {
              children: [
                Container(
                      child:SizedBox(
-                height: 150,
-                width: 150,
+                height: 100,
+                width: 100,
                 child: Padding(
-                  padding:const EdgeInsets.only(top:30,left: 70),
+                  padding:const EdgeInsets.only(top:30),
                   child: Image.asset('picture/pencil_drawing.jpg'),
                 ),
                    ),
@@ -67,52 +67,6 @@ class _Page2State extends State<Page2> {
                           )
                                   ]),
                    ),
-                    Container(
-                     child:SizedBox(
-                height: 150,
-                width: 150,
-                child: Padding(
-                  padding:const EdgeInsets.only(top:30,left: 70),
-                  child: Image.asset('picture/pencil_drawing.jpg'),
-                ),
-                     ),
-                   ),
-                    Row(
-                      children: [
-                        Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: ElevatedButton(onPressed:() {
-                                }, child: Text('Reviews'),
-                                ),
-                              ),
-                      ],
-                    ),
-                   Container(
-                     child: Column(
-                          children:[ Padding(
-                            padding: const EdgeInsets.only(top: 10,bottom: 8),
-                            child: Text('Color drawing'),
-                          ),
-                           Padding(
-                             padding: const EdgeInsets.all(8.0),
-                             child: Text('Cost:450'),
-                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed:() {
-                              
-                            }, child: Text('Buy'),
-                            ),
-                          ),
-Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: ElevatedButton(onPressed:() {
-                              
-                            }, child: Text('Cancel'),
-                            ),
-)
-                                  ]),
-                   ),
-          ])]),);
+                     ])]),);
   }
 }

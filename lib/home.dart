@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/add.dart';
 import 'package:flutter_application_1/home0.dart';
 import 'package:flutter_application_1/profile.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Mynavigationbar extends StatefulWidget {
   const Mynavigationbar({super.key});
@@ -14,7 +15,7 @@ class MynavigationbarState extends State<Mynavigationbar> {
   int _selectedIndex=0;
   static const List<dynamic> _widgetoptions=[
     Home0(),
-    AddImage(),
+    ImagePickerPage(),
     Profile( )
   ];
 
@@ -27,8 +28,8 @@ class MynavigationbarState extends State<Mynavigationbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Talent hub')),
-        backgroundColor:Color.fromARGB(255, 148, 101, 161),
+        title: Center(child:Text('Talent hub')),
+        backgroundColor:Color.fromARGB(255, 175, 138, 185),
  ),
  body: Center(
   child: _widgetoptions.elementAt(_selectedIndex),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -56,13 +57,20 @@ class CartPage extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
           children: [
-            PaymentSymbol(imagePath: 'assets/images/paypal.jpg'),
-            PaymentSymbol(imagePath: 'assets/images/payment.png'),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 130),
+                  child: Container(height: 80,width: 80,child: Image.asset('picture/gpay.jpg')),
+                ),
+              ],
+            ),
+            
           ],
         ),
-      ),
+      ), 
                 Column(
                  children: [
                    Center(

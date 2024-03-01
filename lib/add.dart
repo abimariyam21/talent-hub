@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
-
-class AddImage extends StatefulWidget {
-  const AddImage({super.key});
+import 'package:image_picker/image_picker.dart';
+class ImagePickerPage extends StatefulWidget {
+  const ImagePickerPage({super.key});
 
   @override
-  State<AddImage> createState() => AddImageState();
+  State<ImagePickerPage> createState() =>_ImagePickerPageState();
 }
 
-class AddImageState extends State<AddImage> {
+
+
+class _ImagePickerPageState extends State<ImagePickerPage> {
+  String? _imageUrl;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _imageUrl = pickedFile.path;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,30 +31,45 @@ class AddImageState extends State<AddImage> {
         padding: const EdgeInsets.only(top: 10,bottom: 40),
         child: Column(
           children: [
-            Center(
-              child: Text('Add items',
-              style:TextStyle(color:Color.fromARGB(100, 20, 300, 200),
-              fontSize:30,
-              fontWeight:FontWeight.bold )),
+            Padding(
+              padding: const EdgeInsets.only(top: 80),
+              child: Center(
+                child: Text('Add items',
+                style:TextStyle(color:Color.fromARGB(100, 20, 300, 200),
+                fontSize:30,
+                fontWeight:FontWeight.bold )),
+              ),
             ),
              Padding(
-                  padding: const EdgeInsets.only(top:50,bottom:10),
+                  padding: const EdgeInsets.only(top:50,bottom: 10),
                   child: Text(' Add image form'),
-                ),Container(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top:10,left:400,right: 400),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom:05),
-                       child: TextFormField(
-                      decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Image')),
-                    ),
-                    ),
-                  ),
                 ),
-                 SizedBox(height:10),
-                 Container(
+Padding(
+  padding: const EdgeInsets.only(top: 20,right: 80,left: 80),
+  child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _imageUrl != null
+                  ? Image.network(_imageUrl!, width: 50, height: 300)
+                  : Placeholder(
+                      fallbackHeight: 100,
+                      fallbackWidth: 50,
+                    ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(bottom:10),
+                child: ElevatedButton(
+                  onPressed: _pickImage,
+                  child: Text('Pick Image'),
+                ),
+              ),
+            ],
+          ),
+        ),
+),Container(
                    child: Padding(
-                     padding: const EdgeInsets.only(top:0,left:400,right: 400,bottom: 05),
+                     padding: const EdgeInsets.only(top:0,left:80,right:80,bottom:10),
                      child: TextFormField(
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Price')),
                                ),
@@ -47,15 +78,30 @@ class AddImageState extends State<AddImage> {
                   SizedBox(height:10),
                  Container(
                    child: Padding(
-                     padding: const EdgeInsets.only(top:0,left:400,right: 400,bottom: 05),
+                     padding: const EdgeInsets.only(top:0,left:80,right: 80,bottom: 10),
                      child: TextFormField(
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Description')),
                                ),
                    ),
                  ),
-                
+                Column(
+                 children: [
+                   Center(
+                     child: Padding(
+                       padding: const EdgeInsets.only(top: 80),
+                       child: ElevatedButton(
+                        onPressed: () {
+                          
+                        }, child:Text('OK'),
+                        
+                       ),
+                     ),
+                   )
+                 ]
+                ),
           ],
         ),
-      ),));
+      ),)
+     );
   }
 }

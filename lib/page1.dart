@@ -23,10 +23,10 @@ class _Page1State extends State<Page1> {
              children: [
                Container(
                      child:SizedBox(
-                height: 150,
-                width: 150,
+                height: 100,
+                width: 100,
                 child: Padding(
-                  padding:const EdgeInsets.only(top:30,left: 70),
+                  padding:const EdgeInsets.only(top:30),
                   child: Image.asset('picture/pencil_drawing.jpg'),
                 ),
                      ),
@@ -38,10 +38,10 @@ class _Page1State extends State<Page1> {
                    ),
                     Container(
               child:SizedBox(
-                height: 150,
-                width: 150,
+                height: 100,
+                width: 100,
                 child: Padding(
-                  padding:const EdgeInsets.only(top:30,left: 70),
+                  padding:const EdgeInsets.only(top:30,left:10),
                   child: Image.asset('picture/oil.webp'),
                 ),
               ),
@@ -59,10 +59,10 @@ class _Page1State extends State<Page1> {
                    children: [
                      Container(
                                child:SizedBox(
-                                 height: 150,
-                                 width: 150,
+                                 height: 100,
+                                 width: 100,
                                  child: Padding(
-                      padding:const EdgeInsets.only(top:30,left: 70),
+                      padding:const EdgeInsets.only(top:30),
                       child: Image.asset('picture/glass_paint.webp'),
                                  ),
                                ),
@@ -74,10 +74,10 @@ class _Page1State extends State<Page1> {
                    ),
                               Container(
               child:SizedBox(
-                height: 160,
-                width: 160,
+                height: 100,
+                width: 100,
                 child: Padding(
-                  padding:const EdgeInsets.only(top:30,left: 70),
+                  padding:const EdgeInsets.only(top:30),
                   child: Image.asset('picture/watercolor.jpg'),
                 ),
               ),

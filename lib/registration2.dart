@@ -17,7 +17,7 @@ class _registration2State extends State<registration2 > {
               children: [
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top:10,bottom:10),
+                    padding: const EdgeInsets.only(top:100,bottom:10),
                     child: Text('Registration',
                     style: TextStyle(color: Color.fromARGB(255, 142, 85, 241),
                     fontSize: 30,
@@ -26,11 +26,11 @@ class _registration2State extends State<registration2 > {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:10,bottom:10),
+                  padding: const EdgeInsets.only(top:10,bottom:5),
                   child: Text(' Name'),
                 ),Container(
                   child: Padding(
-                    padding: const EdgeInsets.only(left:300,right:300),
+                    padding: const EdgeInsets.only(left:80,right:80),
                     child: TextFormField(
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('User_name')),
                     ),
@@ -42,7 +42,7 @@ class _registration2State extends State<registration2 > {
                    child: Text('Code'),
                  ),Container(
                    child: Padding(
-                     padding: const EdgeInsets.only(left:300,right:300),
+                     padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Password')),
                                ),
@@ -54,7 +54,7 @@ class _registration2State extends State<registration2 > {
                    child: Text('Number'),
                  ),Container(
                    child: Padding(
-                     padding: const EdgeInsets.only(left:300,right:300),
+                     padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('phone_no')),
                                ),

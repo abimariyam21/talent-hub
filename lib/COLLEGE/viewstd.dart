@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Home2 extends StatefulWidget {
-  const Home2({super.key});
+class Viewstd extends StatefulWidget {
+  const Viewstd({super.key});
 
   @override
-  State<Home2> createState() => _Home2State();
+  State<Viewstd> createState() => _ViewstdState();
 }
 
-class _Home2State extends State<Home2> {
+class _ViewstdState extends State<Viewstd> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -26,7 +26,7 @@ class _Home2State extends State<Home2> {
           Center(
            child:Padding(
              padding: const EdgeInsets.only(top: 20,bottom: 5),
-             child: Text(('Colleges'),
+             child: Text(('Students View'),
              style: TextStyle(
               fontSize: 30,fontWeight: FontWeight.bold)),
            ),
@@ -42,15 +42,16 @@ class _Home2State extends State<Home2> {
                         padding: const EdgeInsets.only(bottom: 8),
                         child: ListTile(
                           title:
-                                  Text('College Name'),
+                                  Text('Name of the students'),
                                   subtitle:
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Column(
                                         children: [
-                                          Text('Address'),
+                                          Text('Department'),
                                            Text('Number:'),
+                                           Text('Details:')
                                         ],
                                       ),
                                     ],
@@ -58,7 +59,7 @@ class _Home2State extends State<Home2> {
                                   trailing: ElevatedButton(onPressed: () {
                                       
                                     },
-                                    child: Text('Status'),),
+                                    child: Text('View'),),
                               
                         )),
                   );
@@ -67,6 +68,5 @@ class _Home2State extends State<Home2> {
         ],
       ),
     );
-   
   }
 }

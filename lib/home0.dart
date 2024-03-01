@@ -11,40 +11,39 @@ class _Home0State extends State<Home0> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: const Text('Talent hub')),
-        backgroundColor:Color.fromARGB(255, 184, 175, 187),
- ),
-      body:Column(
+     body:Column(
         crossAxisAlignment:CrossAxisAlignment.center,
 children: [
  Container(
-  child: Padding(padding:const EdgeInsets.only(right: 900),
+  child: Padding(padding:const EdgeInsets.only(right:300),
   child: Text('Works',style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold),),
 )),
-Row(
-  children:[
-    Container(
-      child:SizedBox(
-        height: 180,
-        width: 180,
-        child: Padding(
-          padding:const EdgeInsets.only(top:30,left: 70),
-          child: Image.asset('picture/drawing.jpg'),
+Padding(
+  padding: const EdgeInsets.only(top: 10),
+  child: Row(
+    children:[
+      Container(
+        child:SizedBox(
+          height: 180,
+          width: 180,
+          child: Padding(
+            padding:const EdgeInsets.only(top:30,left:10),
+            child: Image.asset('picture/drawing.jpg'),
+          ),
         ),
       ),
-    ),
-     Container(
-      child:SizedBox(
-        height: 180,
-        width: 180,
-        child: Padding(
-          padding:const EdgeInsets.only(top:30,left: 70),
-          child: Image.asset('picture/craft.jpg'),
+       Container(
+        child:SizedBox(
+          height: 180,
+          width: 180,
+          child: Padding(
+            padding:const EdgeInsets.only(top:30,left:5),
+            child: Image.asset('picture/craft.jpg'),
+          ),
         ),
       ),
-    ),
-  ]
+    ]
+  ),
 ),
 
 Row(
@@ -54,7 +53,7 @@ Row(
         height: 180,
         width: 180,
         child: Padding(
-          padding:const EdgeInsets.only(top:30,left: 70),
+          padding:const EdgeInsets.only(top:60,left:10),
           child: Image.asset('picture/stitching.jpg'),
         ),
       ),
@@ -64,7 +63,7 @@ Row(
         height: 180,
         width: 180,
         child: Padding(
-          padding:const EdgeInsets.only(top:30,left: 70),
+          padding:const EdgeInsets.only(top:60,left:5),
           child: Image.asset('picture/mehandhi.jpg'),
         ),
       ),

@@ -66,9 +66,8 @@ flutter:
     - picture/glass_paint.webp
     - picture/oil.webp
     - picture/watercolor.jpg
-    - picture/paypal.jpg
-    - picture/payment.png
     - picture/logo.png
+    - picture/gpay.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

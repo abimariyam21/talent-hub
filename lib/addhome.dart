@@ -32,8 +32,9 @@ class AddItemsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('You can add the items under these categories'),
             Padding(
-              padding: const EdgeInsets.all(25),
+              padding: const EdgeInsets.only(top:50,bottom: 25),
               child: CategoryButton(category: 'Drawings'),
             ),
             Padding(

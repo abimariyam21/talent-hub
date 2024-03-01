@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Sample extends StatefulWidget {
-  const Sample({super.key});
+class Note extends StatefulWidget {
+  const Note({super.key});
 
   @override
-  State<Sample> createState() => _SampleState();
+  State<Note> createState() => _NoteState();
 }
 
-class _SampleState extends State<Sample> {
+class _NoteState extends State<Note> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,10 @@ class _SampleState extends State<Sample> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Notification',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Text('Notification',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+              ),
             ],
           ),
           Expanded(

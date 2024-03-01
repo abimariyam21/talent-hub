@@ -13,16 +13,19 @@ class _ListState extends State<List > {
       Column(
         children: [
           Center(
-           child:Text(('List of People'),
-           style: TextStyle(
-            fontSize: 30,fontWeight: FontWeight.bold)),
+           child:Padding(
+             padding: const EdgeInsets.only(top: 50),
+             child: Text(('List of People'),
+             style: TextStyle(
+              fontSize: 30,fontWeight: FontWeight.bold)),
+           ),
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 5,
+                itemCount: 5, 
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 3),
+                    padding: const EdgeInsets.only(left: 20,right: 20),
                     child: Card(
                       elevation: 5,
                       color: Color.fromARGB(255, 179, 198, 212),
@@ -40,13 +43,16 @@ class _ListState extends State<List > {
                                             Text('Address'),
                                              Text('Number:'),
                                         Text('Mail id:'),
+
                                           ],
                                         ),
                                       ],
                                     ),
-                                   
-                                
-                          )),
+                                    trailing: ElevatedButton(onPressed: () {
+                                      
+                                    },
+                                    child: Text('View'),),
+                                   )),
                     ),
                   );
                 }),

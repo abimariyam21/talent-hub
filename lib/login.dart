@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
           children: [
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 15,bottom: 10),
+                padding: const EdgeInsets.only(top: 100,bottom: 10),
                 child: Text('Login',
                      style:TextStyle(color:Color.fromRGBO(45, 124, 222,27),
                      fontSize:40,
@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
      ),
      Container(
        child: Padding(
-         padding: const EdgeInsets.only(left: 300,right: 300),
+         padding: const EdgeInsets.only(left: 50,right: 50),
          child: TextFormField(
           decoration: InputDecoration(border: OutlineInputBorder(),labelText: ('Mail_id')),
          ),
@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
      ),
      Container(
        child: Padding(
-         padding: const EdgeInsets.only(left: 300,right: 300),
+         padding: const EdgeInsets.only(left: 50,right: 50),
          child: TextFormField(
           decoration: InputDecoration(border: OutlineInputBorder(),labelText: ('6 digits')),
          ),

@@ -6,7 +6,11 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        body: Center(child: Image.asset("picture/logo.png")),
+        body: Center(
+          child: Container(
+             height:400,
+             width:200,
+            child: Image.asset("picture/logo.png"))),
       );
   }
 }
