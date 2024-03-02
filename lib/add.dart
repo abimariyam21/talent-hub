@@ -28,11 +28,11 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(child: Padding(
-        padding: const EdgeInsets.only(top: 10,bottom: 40),
+        padding: const EdgeInsets.only(top: 10,bottom: 30),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 80),
+              padding: const EdgeInsets.only(top: 10),
               child: Center(
                 child: Text('Add items',
                 style:TextStyle(color:Color.fromARGB(100, 20, 300, 200),
@@ -41,7 +41,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
               ),
             ),
              Padding(
-                  padding: const EdgeInsets.only(top:50,bottom: 10),
+                  padding: const EdgeInsets.only(top:30,bottom: 10),
                   child: Text(' Add image form'),
                 ),
 Padding(
@@ -88,7 +88,7 @@ Padding(
                  children: [
                    Center(
                      child: Padding(
-                       padding: const EdgeInsets.only(top: 80),
+                       padding: const EdgeInsets.only(top: 50),
                        child: ElevatedButton(
                         onPressed: () {
                           

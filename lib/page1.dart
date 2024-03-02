@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/home0.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({super.key});
@@ -15,7 +17,12 @@ class _Page1State extends State<Page1> {
         title:Text('Drawings'),
         centerTitle: true,
         backgroundColor: Colors.red[100],
-        leading: Icon(Icons.close),
+        leading:InkWell( onTap:() {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+return Mynavigationbar();
+                    }));
+                  },
+          child: Icon(Icons.close)),
        ),
        body:Column(
          children: [
@@ -33,7 +40,7 @@ class _Page1State extends State<Page1> {
                    ),
                    Container(
                      child: Column(
-                          children:[ Text('Pencil drawing'),
+                          children:[ Text('Pencil'),
                                   ]),
                    ),
                     Container(
@@ -48,7 +55,7 @@ class _Page1State extends State<Page1> {
             ),    
                            Container(
                      child: Column(
-                          children:[ Text('Oil painting'),
+                          children:[ Text('Oilpainting'),
                                   ]),
                    ),
              ]
@@ -69,7 +76,7 @@ class _Page1State extends State<Page1> {
                              ),
                                                 Container(
                      child: Column(
-                          children:[ Text('Glass painting'),
+                          children:[ Text('Glass'),
                                   ]),
                    ),
                               Container(
@@ -84,7 +91,7 @@ class _Page1State extends State<Page1> {
             ),
                                Container(
                      child: Column(
-                          children:[ Text('Water color painting'),
+                          children:[ Text('Watercolor'),
                                   ]),
                    ),
                    ],

@@ -14,7 +14,6 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         title:Text('Profile'),
         centerTitle: true,
-        leading: Icon(Icons.close),
         actions: [Padding(
           padding: const EdgeInsets.only(right: 30),
           child: Icon(Icons.person),
@@ -24,7 +23,7 @@ class _ProfileState extends State<Profile> {
       body:   Padding(
         padding: const EdgeInsets.only(left: 25,bottom: 10),
         child: Container(
-          color: Colors.green[50],
+          color: Color.fromARGB(255, 221, 199, 234),
           child: Column(
             children: [
               Container(

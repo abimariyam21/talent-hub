@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rating extends StatefulWidget {
@@ -28,22 +31,43 @@ class _RatingState extends State<Rating> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            RatingBar.builder(
-              initialRating: 3,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
-            )
+            Column(
+              children: [
+Row(
+             children: [
+               Container(
+                     child:SizedBox(
+                height: 170,
+                width: 100,
+                child: Padding(
+                  padding:const EdgeInsets.only(top:20,left: 40),
+                  child: Image.asset('picture/pencil_drawing.jpg'),
+                ),
+                   ),
+),
+               ] ),
           ]),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: RatingBar.builder(
+                initialRating: 3,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) => Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              ),
+            ),
+          
            Row(children: [
             Text(
               'Person 2',
@@ -52,26 +76,60 @@ class _RatingState extends State<Rating> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            RatingBar.builder(
-              initialRating: 3,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
-            )
+Column(
+              children: [
+Row(
+             children: [
+               Container(
+                     child:SizedBox(
+                height: 150,
+                width: 100,
+                child: Padding(
+                  padding:const EdgeInsets.only(top:30,right:40 ),
+                  child: Image.asset('picture/pencil_drawing.jpg'),
+                ),
+                   ),
+),
+               ] ),
+                Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: RatingBar.builder(
+                              initialRating: 3,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                                          ),
+                            ),
+                          ],
+                        ),
+                      ),
           ]),
-        ],
-      ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                     
+                    ],
+                  ),
+                ],
+              )
+          ]),
+    );
+      
      
       
-    );
+    
   }
 }
