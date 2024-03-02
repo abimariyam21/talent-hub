@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home0.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -68,7 +69,11 @@ class _RegistrationState extends State<Registration> {
                  ),
                 Padding(
   padding: const EdgeInsets.only(top:25),
-  child: ElevatedButton(onPressed:(){},child: Text('Signup'),),
+  child: ElevatedButton(onPressed:(){
+    Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Home0();
+    })));
+  },child: Text('Signup'),),
 ),
               ],
             ),
