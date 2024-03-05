@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ADMIN/approvedisco.dart';
 
 class Approvedisco extends StatefulWidget {
   const Approvedisco({super.key});
@@ -71,7 +72,11 @@ class _ApprovediscoState extends State<Approvedisco> {
                                                     children: [
                                                       Padding(
                                                         padding: const EdgeInsets.only(top:30,right: 20),
-                                                       child: ElevatedButton(onPressed: (){},
+                                                       child: ElevatedButton(onPressed: (){
+                                                         Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Approvedisco2();
+    })));
+                                                       },
                                                        child: Text('View'),),
                                                       ),
                                                     ],

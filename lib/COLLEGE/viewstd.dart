@@ -56,10 +56,6 @@ class _ViewstdState extends State<Viewstd> {
                                       ),
                                     ],
                                   ),
-                                  trailing: ElevatedButton(onPressed: () {
-                                      
-                                    },
-                                    child: Text('View'),),
                               
                         )),
                   );

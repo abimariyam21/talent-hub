@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/cart.dart';
+import 'package:flutter_application_1/order.dart';
+import 'package:flutter_application_1/page1.dart';
+import 'package:flutter_application_1/rating.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({super.key});
@@ -15,7 +19,12 @@ class _Page2State extends State<Page2> {
         title:Text('Pencil Drawings'),
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 169, 186, 203),
-        leading: Icon(Icons.close),
+        leading:InkWell(onTap:() {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Page1();
+     }));
+    },
+                       child: Icon(Icons.close)),
        ),
         body:Column(
          children: [
@@ -36,7 +45,11 @@ class _Page2State extends State<Page2> {
                         Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: ElevatedButton(onPressed:() {
-                                }, child: Text('Reviews'),
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Rating();
+     }));
+    },
+                                 child: Text('Reviews'),
                                 ),
                               ),
                       ],
@@ -54,14 +67,19 @@ class _Page2State extends State<Page2> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ElevatedButton(onPressed:() {
-                              
+                               Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return OrderedItemPage();
+     }));
+                          
                             }, child: Text('Buy'),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ElevatedButton(onPressed:() {
-                              
+                               Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Page1();
+     }));
                             }, child: Text('Cancel'),
                             ),
                           )

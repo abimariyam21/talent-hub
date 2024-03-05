@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
 
 class Rejectwork extends StatefulWidget {
   const Rejectwork({super.key});
@@ -20,9 +21,13 @@ class _RejectworkState extends State<Rejectwork> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 50),
-                    child: Icon(Icons.close),
+                    child: InkWell(
+    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Storekeeper();
+     }));},child: Icon(Icons.close),
                   ),
-                ],
+              )],
               ),
               Center(
                child:Padding(

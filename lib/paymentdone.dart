@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/cart.dart';
 
 void main() {
   runApp(Payment());
@@ -9,9 +10,9 @@ class Payment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Payment Done Animation',
+      title: 'Delivary done Animation',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: PaymentScreen(),
     );
@@ -50,11 +51,16 @@ class _PaymentScreenState extends State<PaymentScreen> with SingleTickerProvider
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.only(top:30,right: 40),
-          child: Center(child: Text('Payment Done')),
+          child: Center(child: Text('Delivary Done')),
         ),
         leading: Padding(
           padding: const EdgeInsets.only(top: 20),
-          child: Icon(Icons.close),
+          child:InkWell(
+    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Cart();
+     }));
+    },child: Icon(Icons.close)),
         ),
       ),
       body: Center(
@@ -67,7 +73,7 @@ class _PaymentScreenState extends State<PaymentScreen> with SingleTickerProvider
                 padding: const EdgeInsets.only(bottom: 30),
                 child: Icon(
                   Icons.check_circle,
-                  color: Color.fromARGB(255, 4, 56, 212),
+                  color: Color.fromARGB(255, 4, 400, 212),
                   size: 150.0,
                   
                 ),

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/viewstd.dart';
 
 class Approveclg extends StatefulWidget {
   const Approveclg({super.key});
@@ -14,17 +16,28 @@ class _ApproveclgState extends State<Approveclg> {
       body:
     Column(
             children: [
-              Row(
+              Padding(
+                padding: const EdgeInsets.only(top: 60,left: 300),
+                child: InkWell(
+                    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Viewstd();
+     }));
+    },child: Icon(Icons.people_rounded)),
+              ),
+               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: EdgeInsets.only(),
+              
                     child: Icon(Icons.close),
+                     
                   ),
                 ],
               ),
               Center(
                child:Padding(
-                 padding: const EdgeInsets.only(top: 50),
+                 padding: const EdgeInsets.only(top: 40),
                  child: 
                  Text(('Works'),
                  style: TextStyle(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viework.dart';
+import 'package:flutter_application_1/login.dart';
 
 class registration2 extends StatefulWidget {
   const registration2 ({super.key});
@@ -61,14 +64,24 @@ class _registration2State extends State<registration2 > {
                    ),
                  ),
                  SizedBox(height:10),
-                  Text('Have account?Login'),
+                  InkWell(
+    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Login();
+     }));},
+     child: Text('Have account?Login')),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
                    child: Image.asset('picture/logo.JPG'),
                  ),
                 Padding(
   padding: const EdgeInsets.only(top:25),
-  child: ElevatedButton(onPressed:(){},child: Text('Signup'),),
+  child: ElevatedButton(onPressed:(){
+ Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Storekeeper();
+    })));
+
+  },child: Text('Signup'),),
 ),
               ],
             ),

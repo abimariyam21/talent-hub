@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/page2.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rating extends StatefulWidget {
@@ -19,7 +20,11 @@ class _RatingState extends State<Rating> {
         title: Text('Ratings'),
         centerTitle: true,
         backgroundColor: Colors.red[100],
-        leading: Icon(Icons.close),
+        leading: InkWell(onTap:() {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Page2();
+     }));
+    },child: Icon(Icons.close)),
       ),
       body: Column(
         children: [

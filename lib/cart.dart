@@ -70,7 +70,9 @@ class CartPage extends StatelessWidget {
                         child: Container(
                             height: 80,
                             width: 80,
-                            child: Image.asset('picture/gpay.jpg')),
+                            child: const Text('Cash on delivery',
+                            style: TextStyle(fontSize: 20),),
+                            ),
                       ),
                     ],
                   ),

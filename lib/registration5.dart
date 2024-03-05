@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/DIS-CO/approveclg.dart';
-import 'package:flutter_application_1/login.dart';
+import 'package:flutter_application_1/COLLEGE/approvestd.dart';
+import 'package:flutter_application_1/COLLEGE/clghome.dart';
+import 'package:flutter_application_1/admin/approvedis-co.dart';
 
-class registration3 extends StatefulWidget {
-  const registration3 ({super.key});
+class registration5 extends StatefulWidget {
+  const registration5({super.key});
 
   @override
-  State<registration3 > createState() => _registration3State();
+  State<registration5> createState() => _registration5State();
 }
 
-class _registration3State extends State<registration3 > {
+class _registration5State extends State<registration5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: 
+       body: 
           Container(     
            child: Column(
               children: [
@@ -63,11 +64,7 @@ class _registration3State extends State<registration3 > {
                    ),
                  ),
                  SizedBox(height:10),
-                  InkWell(
-    onTap: () {
-     Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return Login();
-     }));},child: Text('Have account?Login')),
+                  Text('Have account?Login'),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
                    child: Image.asset('picture/logo.JPG'),
@@ -76,11 +73,9 @@ class _registration3State extends State<registration3 > {
   padding: const EdgeInsets.only(top:25),
   child: ElevatedButton(onPressed:(){
      Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return Approveclg();
+      return College();
     })));
-
-  },
-  child: Text('Signup'),),
+  },child: Text('Signup'),),
 ),
               ],
             ),
@@ -91,4 +86,3 @@ class _registration3State extends State<registration3 > {
       
   }
 }
-    

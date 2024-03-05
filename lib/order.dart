@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_application_1/cart.dart';
 
 void main() {
   runApp(Order());
@@ -18,9 +19,7 @@ class Order extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ordered Item Page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      
       home: OrderedItemPage(),
     );
   }
@@ -42,27 +41,45 @@ class OrderedItemPage extends StatelessWidget {
         leading: Icon(Icons.close),
       ),
       body: 
-      Center(
-        child: Column(
-          children: [
-            Container(
-              color: Colors.grey,height: 300,width: 300,
-              child: ListView.builder(
-                itemCount: orderedItems.length,
-                itemBuilder: (context, index) {
-                  final item = orderedItems[index];
-                  return ListTile(
-                    title: Text(item.name),
-                    subtitle: Text('Price: \$${item.price.toStringAsFixed(2)} | Quantity: ${item.quantity}',),
-                    
-                  );
-                },
+     Center(
+  child: Column(
+    children: [
+      Container(
+        color: Color.fromARGB(255, 218, 190, 190),
+        height: 300,
+        width: 300,
+        child: ListView.builder(
+          itemCount: orderedItems.length,
+          itemBuilder: (context, index) {
+            final item = orderedItems[index];
+            return ListTile(
+              title: Text(item.name),
+              subtitle: Text(
+                'Price: \$${item.price.toStringAsFixed(2)} | Quantity: ${item.quantity}',
               ),
-            ),
-]        ),
-      ),
+              // Placing the icon properly
+            );
+          },
+        ),
+           
+         ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(onPressed:(){
+         Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Cart();
+                        },
+                      ));
+      },child: Text('Cart')),
+    )
+       
+     ]),
+  ),
+);
+
  
 
-    );
+  
   }
 }

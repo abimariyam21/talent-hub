@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/home0.dart';
+import 'package:flutter_application_1/page2.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({super.key});
@@ -34,7 +35,13 @@ return Mynavigationbar();
                 width: 100,
                 child: Padding(
                   padding:const EdgeInsets.only(top:30),
-                  child: Image.asset('picture/pencil_drawing.jpg'),
+                  child: InkWell(
+                    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Page2();
+     }));
+    },
+                     child: Image.asset('picture/pencil_drawing.jpg')),
                 ),
                      ),
                    ),

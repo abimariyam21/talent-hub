@@ -19,6 +19,7 @@ import 'package:flutter_application_1/DIS-CO/coviewstd.dart';
 import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/home0.dart';
 import 'package:flutter_application_1/paymentdone.dart';
+import 'package:flutter_application_1/registration5.dart';
 import 'package:flutter_application_1/udtdlt.dart';
 import 'package:flutter_application_1/viewfbks.dart';
 //import 'package:flutter_application_1/imagepicker.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 150, 87, 158)),
         useMaterial3: true,
       ),
-      home:Mynavigationbar (),
+      home:Logo(),
     );
   }
 }

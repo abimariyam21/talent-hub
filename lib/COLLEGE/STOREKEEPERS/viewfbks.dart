@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
 
 class Viewfbks extends StatefulWidget {
   const Viewfbks({super.key});
@@ -18,7 +19,11 @@ class _ViewfbksState extends State<Viewfbks> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 50),
-                    child: Icon(Icons.close),
+                    child: InkWell(
+    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Storekeeper();
+     }));},child: Icon(Icons.close)),
                   ),
                 ],
               ),

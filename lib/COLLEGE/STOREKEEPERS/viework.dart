@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
 
 class viework extends StatefulWidget {
   const viework({super.key});
@@ -18,9 +19,14 @@ class _vieworkState extends State<viework> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 50),
-                    child: Icon(Icons.close),
+                    child:InkWell(
+    onTap: () {
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+       return Storekeeper();
+     }));
+     },child: Icon(Icons.close),
                   ),
-                ],
+              )],
               ),
               Center(
                child:Padding(

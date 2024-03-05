@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/admin/approvedis-co.dart';
 
 class registration4 extends StatefulWidget {
   const registration4({super.key});
@@ -68,7 +69,11 @@ class _registration4State extends State<registration4> {
                  ),
                 Padding(
   padding: const EdgeInsets.only(top:25),
-  child: ElevatedButton(onPressed:(){},child: Text('Signup'),),
+  child: ElevatedButton(onPressed:(){
+     Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Approvedisco();
+    })));
+  },child: Text('Signup'),),
 ),
               ],
             ),
