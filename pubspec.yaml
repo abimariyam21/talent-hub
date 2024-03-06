@@ -68,6 +68,7 @@ flutter:
     - picture/watercolor.jpg
     - picture/logo.png
     - picture/gpay.jpg
+    - picture/cash_on_delivery.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

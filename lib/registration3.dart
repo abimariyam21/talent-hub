@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/DIS-CO/approveclg.dart';
+import 'package:flutter_application_1/DIS-CO/homedisco.dart';
 import 'package:flutter_application_1/login.dart';
 
 class registration3 extends StatefulWidget {
@@ -76,7 +77,7 @@ class _registration3State extends State<registration3 > {
   padding: const EdgeInsets.only(top:25),
   child: ElevatedButton(onPressed:(){
      Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return Approveclg();
+      return Homedisco();
     })));
 
   },

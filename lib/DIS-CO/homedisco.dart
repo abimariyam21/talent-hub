@@ -4,16 +4,18 @@ import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viewfbks.dart';
 import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viework.dart';
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/COLLEGE/viework.dart';
+import 'package:flutter_application_1/COLLEGE/viewstd.dart';
+import 'package:flutter_application_1/DIS-CO/approveclg.dart';
 
 void main() {
-  runApp(Storekeeper());
+  runApp(Homedisco());
 }
 
-class Storekeeper extends StatelessWidget {
+class Homedisco extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Storekeeper App',
+      title: 'District coordinators',
       theme: ThemeData(
         primaryColor: Colors.blue,
         hintColor: Colors.blueAccent,
@@ -46,7 +48,7 @@ class AddItemsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Works',
+              'Coordinators view',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -54,19 +56,15 @@ class AddItemsPage extends StatelessWidget {
             ),
             SizedBox(height: 50),
             CategoryButton(
-              category: 'View Works',
-              destination: Viework(),
+              category: 'Approve Colleges',
+              destination: Approveclg(),
             ),
             SizedBox(height: 25),
             CategoryButton(
-              category: 'Approve',
-              destination: Approvestd(),
+              category: 'View students',
+              destination: Viewstd(),
             ),
-            SizedBox(height: 25),
-            CategoryButton(
-              category: 'View Feedbacks',
-              destination: Viewfbks(),
-            ),
+           
           ],
         ),
       ),
@@ -108,10 +106,10 @@ class ViewWorksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('View Works'),
+        title: Text('Approve college'),
       ),
       body: Center(
-        child: Text('This is the View Works page'),
+        child: Text('This is to view college'),
       ),
     );
   }
@@ -122,39 +120,14 @@ class ApprovePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Approve'),
+        title: Text('Students view'),
       ),
       body: Center(
-        child: Text('This is the Approve page'),
+        child: Text('This is the Students view'),
       ),
     );
   }
 }
 
-class DisableWorksPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Disable Works'),
-      ),
-      body: Center(
-        child: Text('This is the Disable Works page'),
-      ),
-    );
-  }
-}
 
-class ViewFeedbacksPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('View Feedbacks'),
-      ),
-      body: Center(
-        child: Text('This is the View Feedbacks page'),
-      ),
-    );
-  }
-}
+

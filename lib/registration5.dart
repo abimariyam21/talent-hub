@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ADMIN/homeadmin.dart';
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/COLLEGE/clghome.dart';
 import 'package:flutter_application_1/admin/approvedis-co.dart';

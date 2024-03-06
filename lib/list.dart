@@ -20,7 +20,7 @@ class _ListState extends State<List > {
               fontSize: 30,fontWeight: FontWeight.bold)),
            ),
           ),
-          Expanded(
+          Expanded( 
             child: ListView.builder(
                 itemCount: 5, 
                 itemBuilder: (context, index) {

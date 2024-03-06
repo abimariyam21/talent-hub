@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page1.dart';
 import 'package:image_picker/image_picker.dart';
 class ImagePickerPage extends StatefulWidget {
   const ImagePickerPage({super.key});
@@ -19,6 +20,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
     if (pickedFile != null) {
       setState(() {
         _imageUrl = pickedFile.path;
+         
       });
     }
   }
@@ -51,10 +53,10 @@ Padding(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _imageUrl != null
-                  ? Image.network(_imageUrl!, width: 50, height: 300)
+                  ? Image.network(_imageUrl!, width: 100, height: 100)
                   : Placeholder(
                       fallbackHeight: 100,
-                      fallbackWidth: 50,
+                      fallbackWidth: 100,
                     ),
               SizedBox(height: 20),
               Padding(
@@ -91,7 +93,11 @@ Padding(
                        padding: const EdgeInsets.only(top: 50),
                        child: ElevatedButton(
                         onPressed: () {
-                          
+                           Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Page1();
+                        },
+                      ));
                         }, child:Text('OK'),
                         
                        ),

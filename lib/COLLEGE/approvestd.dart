@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
 
 class Approvestd extends StatefulWidget {
-  const Approvestd({super.key});
+  const Approvestd({Key? key}) : super(key: key);
 
   @override
   State<Approvestd> createState() => _ApprovestdState();
@@ -12,54 +13,53 @@ class _ApprovestdState extends State<Approvestd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text('Approve students'),
+        title: Text('Approve Students'),
         centerTitle: true,
-        leading: Icon(Icons.close),
-        actions: [Padding(
-          padding: const EdgeInsets.only(right: 30),
-          child: Icon(Icons.people),
-        )],
-       
-       ),
-      body:   Padding(
-        padding: const EdgeInsets.only(left: 20,right: 20,bottom: 60),
-        child: Container(
-          color: Colors.green[50],
-          child: Column(
-            children: [
-              Container(
-              child: Padding(
-                padding: EdgeInsets.only(top: 30,right:100),
-                child: Text('Name of the college:************',
-                style:TextStyle(fontSize: 20)),
-              ),
-              ),
-              Container(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20,right:200),
-            child: Text('Details:*********',
-            style:TextStyle(fontSize: 20)),
+        leading: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Storekeeper();
+            }));
+          },
+          child: Icon(Icons.close),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Icon(Icons.people),
           ),
-          ),
-          Container(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20,right:200),
-            child: Text('About:**********',
-            style:TextStyle(fontSize: 20)),
-          ),
-          ),
-           Padding(
-             padding: const EdgeInsets.only(top: 80),
-             child: ElevatedButton(onPressed: () {
-                                        
-                                      },
-                                      child: Text('Approve'),),
-           ),
-            ],
-          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(height: 30),
+            Text(
+              'Name of the College: ************',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Details: *********',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'About: **********',
+              style: TextStyle(fontSize: 20),
+            ),
+            Spacer(), // Adds spacing between text and button
+            ElevatedButton(
+              onPressed: () {
+                // Add onPressed functionality
+              },
+              child: Text('Approve'),
+            ),
+          ],
         ),
       ),
-
-      );
+    );
   }
 }

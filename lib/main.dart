@@ -9,6 +9,7 @@ import 'package:flutter_application_1/COLLEGE/viework.dart';
 import 'package:flutter_application_1/COLLEGE/viewsk.dart';
 import 'package:flutter_application_1/COLLEGE/viewsk2.dart';
 import 'package:flutter_application_1/COLLEGE/viewstd.dart';
+// import 'package:flutter_application_1/Edited.dart';
 import 'package:flutter_application_1/add.dart';
 import 'package:flutter_application_1/addhome.dart';
 import 'package:flutter_application_1/ADMIN/approvedis-co.dart';
@@ -17,6 +18,7 @@ import 'package:flutter_application_1/cart.dart';
 import 'package:flutter_application_1/DIS-CO/approveclg.dart';
 import 'package:flutter_application_1/DIS-CO/coviewstd.dart';
 import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/home0.dart';
 import 'package:flutter_application_1/home0.dart';
 import 'package:flutter_application_1/paymentdone.dart';
 import 'package:flutter_application_1/registration5.dart';
@@ -36,7 +38,7 @@ import 'package:flutter_application_1/rating.dart';
 import 'package:flutter_application_1/registration.dart';
 import 'package:flutter_application_1/registration2.dart';
 import 'package:flutter_application_1/registration3.dart';
-import 'package:flutter_application_1/registration4.dart';
+import 'package:flutter_application_1/registration4.dart';  
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 150, 87, 158)),
         useMaterial3: true,
       ),
-      home:Logo(),
+      home:registration4(),
     );
   }
 }
