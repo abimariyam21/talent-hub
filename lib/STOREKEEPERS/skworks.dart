@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/rejectwork.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viewfbks.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viework.dart';
+
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/COLLEGE/viework.dart';
+import 'package:flutter_application_1/STOREKEEPERS/rejectwork.dart';
+import 'package:flutter_application_1/STOREKEEPERS/viewfbks.dart';
+import 'package:flutter_application_1/STOREKEEPERS/viework.dart';
 
 void main() {
   runApp(Storekeeper());
@@ -39,7 +40,7 @@ class AddItemsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Updates'),
+        title: Text('Storekeeper'),
       ),
       body: Center(
         child: Column(
@@ -59,9 +60,10 @@ class AddItemsPage extends StatelessWidget {
             ),
             SizedBox(height: 25),
             CategoryButton(
-              category: 'Approve',
-              destination: Approvestd(),
+              category: 'Permissions ',
+              destination: Rejectwork(),
             ),
+           
             SizedBox(height: 25),
             CategoryButton(
               category: 'View Feedbacks',

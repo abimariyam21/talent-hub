@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/page1.dart';
+import 'package:flutter_application_1/USER/page1.dart';
+
 import 'package:image_picker/image_picker.dart';
 class ImagePickerPage extends StatefulWidget {
   const ImagePickerPage({super.key});
@@ -98,7 +99,7 @@ Padding(
                           return Page1();
                         },
                       ));
-                        }, child:Text('OK'),
+                        }, child:Text('Request '),
                         
                        ),
                      ),

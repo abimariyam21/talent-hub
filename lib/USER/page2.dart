@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/cart.dart';
-import 'package:flutter_application_1/order.dart';
-import 'package:flutter_application_1/page1.dart';
-import 'package:flutter_application_1/rating.dart';
+import 'package:flutter_application_1/USER/order.dart';
+import 'package:flutter_application_1/USER/page1.dart';
+import 'package:flutter_application_1/USER/rating.dart';
+
 
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
@@ -57,6 +57,7 @@ class _Page2State extends State<Page2> {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
+
                     ),
                     Text(
                       'Cost: 250',

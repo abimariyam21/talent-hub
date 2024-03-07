@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/USER/login.dart';
+import 'package:flutter_application_1/STOREKEEPERS/registration2.dart';
 
 
-class Logo extends StatelessWidget {
-  const Logo({super.key});
+
+class Sklogo extends StatelessWidget {
+  const Sklogo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class Logo extends StatelessWidget {
             child:InkWell(
     onTap: () {
      Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return Login();
+       return registration2();
      }));
     },
             child: Image.asset("picture/logo.png"))),

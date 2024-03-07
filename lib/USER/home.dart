@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/add.dart';
-import 'package:flutter_application_1/home0.dart';
-import 'package:flutter_application_1/note.dart';
-import 'package:flutter_application_1/profile.dart';
+import 'package:flutter_application_1/USER/add.dart';
+import 'package:flutter_application_1/USER/home0.dart';
+import 'package:flutter_application_1/USER/note.dart';
+import 'package:flutter_application_1/USER/profile.dart';
+
+
 import 'package:image_picker/image_picker.dart';
 
 class Mynavigationbar extends StatefulWidget {

@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ADMIN/adviewworks.dart';
 
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/COLLEGE/viework.dart';
-import 'package:flutter_application_1/COLLEGE/viewsk.dart';
-import 'package:flutter_application_1/COLLEGE/viewstd.dart';
+import 'package:flutter_application_1/STOREKEEPERS/rejectwork.dart';
 import 'package:flutter_application_1/STOREKEEPERS/viewfbks.dart';
+import 'package:flutter_application_1/STOREKEEPERS/viework.dart';
 
 void main() {
-  runApp(College());
+  runApp(Storekeeper());
 }
 
-class College extends StatelessWidget {
+class Storekeeper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '',
+      title: 'Storekeeper App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+        hintColor: Colors.blueAccent,
+        scaffoldBackgroundColor: Colors.grey[200],
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blueGrey,
+          elevation: 0,
+          centerTitle: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
+        ),
       ),
       home: AddItemsPage(),
     );
@@ -28,32 +41,34 @@ class AddItemsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('College')),
-        backgroundColor: Colors.blueGrey,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
+        title: Text('Storekeeper'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Works'),
-            Padding(
-              padding: const EdgeInsets.only(top: 50, bottom: 25),
-              child: CategoryButton(category: 'Approve students', destination: Viewstd()),
+            Text(
+              'Works',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(25),
-              child: CategoryButton(category: 'View works', destination: viework()),
+            SizedBox(height: 50),
+            CategoryButton(
+              category: 'View Works',
+              destination: Adviewworks(),
             ),
-             Padding(
-              padding: const EdgeInsets.all(25),
-              child: CategoryButton(category: 'Approve store keepers', destination: Viewsk()),
+            SizedBox(height: 25),
+            CategoryButton(
+              category: 'Permissions ',
+              destination: Rejectwork(),
             ),
            
-            Padding(
-              padding: const EdgeInsets.all(25),
-              child: CategoryButton(category: 'View feedbacks', destination: Viewfbks()),
+            SizedBox(height: 25),
+            CategoryButton(
+              category: 'View Feedbacks',
+              destination: Viewfbks(),
             ),
           ],
         ),
@@ -78,6 +93,14 @@ class CategoryButton extends StatelessWidget {
           MaterialPageRoute(builder: (context) => destination),
         );
       },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color.fromARGB(30, 40, 300, 400),
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        textStyle: TextStyle(fontSize: 18),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
       child: Text(category),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
+import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
+
 
 class Viewfbks extends StatefulWidget {
   const Viewfbks({Key? key}) : super(key: key);

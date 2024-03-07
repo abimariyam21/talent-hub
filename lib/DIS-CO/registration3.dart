@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viework.dart';
-import 'package:flutter_application_1/login.dart';
+import 'package:flutter_application_1/DIS-CO/approveclg.dart';
+import 'package:flutter_application_1/DIS-CO/homedisco.dart';
+import 'package:flutter_application_1/USER/login.dart';
 
-class registration2 extends StatefulWidget {
-  const registration2 ({super.key});
+
+class registration3 extends StatefulWidget {
+  const registration3 ({super.key});
 
   @override
-  State<registration2 > createState() => _registration2State();
+  State<registration3 > createState() => _registration3State();
 }
 
-class _registration2State extends State<registration2 > {
+class _registration3State extends State<registration3 > {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _registration2State extends State<registration2 > {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:10,bottom:5),
+                  padding: const EdgeInsets.only(top:10,bottom:10),
                   child: Text(' Name'),
                 ),Container(
                   child: Padding(
@@ -68,20 +69,20 @@ class _registration2State extends State<registration2 > {
     onTap: () {
      Navigator.push(context, MaterialPageRoute(builder: (context) {
        return Login();
-     }));},
-     child: Text('Have account?Login')),
+     }));},child: Text('Have account?Login')),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
                    child: Image.asset('picture/logo.JPG'),
                  ),
                 Padding(
-  padding: const EdgeInsets.only(top:25),
+  padding: const EdgeInsets.only(top:25,bottom: 10),
   child: ElevatedButton(onPressed:(){
- Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return Storekeeper();
+     Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Homedisco();
     })));
 
-  },child: Text('Signup'),),
+  },
+  child: Text('Signup'),),
 ),
               ],
             ),
@@ -93,4 +94,3 @@ class _registration2State extends State<registration2 > {
   }
 }
     
-  

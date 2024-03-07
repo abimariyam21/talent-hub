@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/viewsk2.dart';
 
 class Viewsk extends StatefulWidget {
   const Viewsk({super.key});
@@ -55,8 +56,15 @@ class _ViewskState extends State<Viewsk> {
                                       ),
                                     ],
                                   ),
-                                  trailing: ElevatedButton(onPressed: () {
-                                      
+                                  trailing: ElevatedButton(
+                                      onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return Viewsk2();
+                  }),
+                );
+              
                                     },
                                     child: Text('View'),),
                               

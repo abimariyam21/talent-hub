@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/Viewstdadmin.dart';
+import 'package:flutter_application_1/ADMIN/approvedis-co.dart';
 import 'package:flutter_application_1/ADMIN/viewclg.dart';
 import 'package:flutter_application_1/COLLEGE/viewstd.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
 
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/viework.dart';
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
+import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
+import 'package:flutter_application_1/STOREKEEPERS/viework.dart';
 
 void main() {
   runApp(Homeadmin());
@@ -29,7 +30,7 @@ class AddItemsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Edit')),
+        title: Center(child: Text('Admin page')),
         backgroundColor: Colors.blueGrey,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
@@ -41,7 +42,7 @@ class AddItemsPage extends StatelessWidget {
             Text('Works'),
             Padding(
               padding: const EdgeInsets.only(top: 50, bottom: 25),
-              child: CategoryButton(category: 'View district coordinators', destination: Approvestd()),
+              child: CategoryButton(category: 'View coordinators', destination: Approvedisco()),
             ),
             Padding(
               padding: const EdgeInsets.all(25),

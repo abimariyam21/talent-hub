@@ -36,7 +36,7 @@ class _ApprovediscoState extends State<Approvedisco> {
             child: Padding(
               padding: const EdgeInsets.only(top: 50),
               child: Text(
-                'District Coordinators',
+                ' View Coordinators',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -57,27 +57,19 @@ class _ApprovediscoState extends State<Approvedisco> {
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
                         title: Text(
-                          'Name of the coordinators',
+                          'Name of the coordinator',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Place'),
+                            Text('College name'),
                             Text('Email'),
                             Text('Contact'),
                             Text('Details'),
                           ],
                         ),
-                        trailing: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Approvedisco2()),
-                            );
-                          },
-                          child: Text('View'),
-                        ),
+                       
                       ),
                     ),
                   ),

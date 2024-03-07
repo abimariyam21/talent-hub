@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/COLLEGE/STOREKEEPERS/skworks.dart';
+import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
+
 
 class Approvestd extends StatefulWidget {
   const Approvestd({Key? key}) : super(key: key);

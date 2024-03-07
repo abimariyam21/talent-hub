@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/DIS-CO/approveclg.dart';
-import 'package:flutter_application_1/DIS-CO/homedisco.dart';
-import 'package:flutter_application_1/login.dart';
+import 'package:flutter_application_1/USER/home0.dart';
 
-class registration3 extends StatefulWidget {
-  const registration3 ({super.key});
+class Registration extends StatefulWidget {
+  const Registration({super.key});
 
   @override
-  State<registration3 > createState() => _registration3State();
+  State<Registration> createState() => _RegistrationState();
 }
 
-class _registration3State extends State<registration3 > {
+class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +18,7 @@ class _registration3State extends State<registration3 > {
               children: [
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top:100,bottom:10),
+                    padding: const EdgeInsets.only(top:100,bottom:5),
                     child: Text('Registration',
                     style: TextStyle(color: Color.fromARGB(255, 142, 85, 241),
                     fontSize: 30,
@@ -64,11 +62,7 @@ class _registration3State extends State<registration3 > {
                    ),
                  ),
                  SizedBox(height:10),
-                  InkWell(
-    onTap: () {
-     Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return Login();
-     }));},child: Text('Have account?Login')),
+                  Text('Have account?Login'),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
                    child: Image.asset('picture/logo.JPG'),
@@ -76,12 +70,10 @@ class _registration3State extends State<registration3 > {
                 Padding(
   padding: const EdgeInsets.only(top:25),
   child: ElevatedButton(onPressed:(){
-     Navigator.push(context, MaterialPageRoute(builder: ((context) {
-      return Homedisco();
+    Navigator.push(context, MaterialPageRoute(builder: ((context) {
+      return Home0();
     })));
-
-  },
-  child: Text('Signup'),),
+  },child: Text('Signup'),),
 ),
               ],
             ),
@@ -92,4 +84,3 @@ class _registration3State extends State<registration3 > {
       
   }
 }
-    

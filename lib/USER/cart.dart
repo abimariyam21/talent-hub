@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/paymentdone.dart';
+import 'package:flutter_application_1/USER/paymentdone.dart';
+
 
 void main() {
   runApp(Cart());

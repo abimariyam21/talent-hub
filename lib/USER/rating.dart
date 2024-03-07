@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/page2.dart';
+import 'package:flutter_application_1/USER/page2.dart';
+
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rating extends StatefulWidget {
