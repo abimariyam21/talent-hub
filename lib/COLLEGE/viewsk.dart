@@ -27,7 +27,7 @@ class _ViewskState extends State<Viewsk> {
           Center(
            child:Padding(
              padding: const EdgeInsets.only(top: 20,bottom: 5),
-             child: Text(('Shop keepers'),
+             child: Text(('Store keepers'),
              style: TextStyle(
               fontSize: 30,fontWeight: FontWeight.bold)),
            ),

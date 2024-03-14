@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/USER/page1.dart';
 
@@ -8,10 +9,11 @@ class ImagePickerPage extends StatefulWidget {
   @override
   State<ImagePickerPage> createState() =>_ImagePickerPageState();
 }
-
+ 
 
 
 class _ImagePickerPageState extends State<ImagePickerPage> {
+  var profileImage;
   String? _imageUrl;
 
   Future<void> _pickImage() async {
@@ -99,7 +101,7 @@ Padding(
                           return Page1();
                         },
                       ));
-                        }, child:Text('Request '),
+                        }, child:Text('Addimage'),
                         
                        ),
                      ),
@@ -110,5 +112,7 @@ Padding(
         ),
       ),)
      );
+      
   }
 }
+  

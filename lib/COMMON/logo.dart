@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/DIS-CO/registration3.dart';
+import 'package:flutter_application_1/COMMON/login.dart';
+import 'package:flutter_application_1/COMMON/splash.dart';
 
 
-
-class Cologo extends StatelessWidget {
-  const Cologo({super.key});
+class Logo extends StatelessWidget {
+  const Logo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Cologo extends StatelessWidget {
             child:InkWell(
     onTap: () {
      Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return registration3();
+       return Mypage();
      }));
     },
             child: Image.asset("picture/logo.png"))),

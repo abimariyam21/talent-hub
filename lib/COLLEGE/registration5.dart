@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/homeadmin.dart';
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
@@ -12,6 +13,15 @@ class registration5 extends StatefulWidget {
 }
 
 class _registration5State extends State<registration5> {
+   var name=TextEditingController();
+  var code=TextEditingController();
+  var phone_no=TextEditingController();
+
+ void getdata() async {
+    print('object');
+    await FirebaseFirestore.instance.collection('college').add(
+        {'name': name.text, 'password': code.text, 'number': phone_no.text,});
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +46,7 @@ class _registration5State extends State<registration5> {
                   child: Padding(
                     padding: const EdgeInsets.only(left:80,right:80),
                     child: TextFormField(
+                      controller: name,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('User_name')),
                     ),
                   ),
@@ -48,6 +59,7 @@ class _registration5State extends State<registration5> {
                    child: Padding(
                      padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
+                      controller: code,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Password')),
                                ),
                    ),
@@ -60,6 +72,7 @@ class _registration5State extends State<registration5> {
                    child: Padding(
                      padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
+                      controller: phone_no,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('phone_no')),
                                ),
                    ),
@@ -68,11 +81,12 @@ class _registration5State extends State<registration5> {
                   Text('Have account?Login'),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
-                   child: Image.asset('picture/logo.JPG'),
+                   child: Image.asset('picture/logo.png'),
                  ),
                 Padding(
   padding: const EdgeInsets.only(top:25),
   child: ElevatedButton(onPressed:(){
+    getdata();
      Navigator.push(context, MaterialPageRoute(builder: ((context) {
       return College();
     })));

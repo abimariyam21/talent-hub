@@ -26,7 +26,7 @@ class _ViewfbksState extends State<Viewfbks> {
                       return Storekeeper();
                     }));
                   },
-                  child: Icon(Icons.close),
+                 
                 ),
               ],
             ),

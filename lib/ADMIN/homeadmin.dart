@@ -8,24 +8,9 @@ import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
 import 'package:flutter_application_1/STOREKEEPERS/viework.dart';
 
-void main() {
-  runApp(Homeadmin());
-}
 
-class Homeadmin extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: AddItemsPage(),
-    );
-  }
-}
 
-class AddItemsPage extends StatelessWidget {
+class Adminhome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

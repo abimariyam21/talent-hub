@@ -78,14 +78,7 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
               onIncrement: () => _incrementQuantity(1),
               onDecrement: () => _decrementQuantity(1),
             ),
-            OrderDetailCard(
-              itemName: 'Item 2',
-              quantity: _item2Quantity,
-              price: 5.99,
-              onIncrement: () => _incrementQuantity(2),
-              onDecrement: () => _decrementQuantity(2),
-            ),
-            SizedBox(height: 20),
+            
             Text(
               'Product Total Price: \$${(_item1Quantity * 10.99 + _item2Quantity * 5.99).toStringAsFixed(2)}',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

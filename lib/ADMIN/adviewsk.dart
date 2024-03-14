@@ -51,7 +51,7 @@ class AddItemsPage extends StatelessWidget {
               'Works',
               style: TextStyle(
                 fontSize: 24,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.bold,    
               ),
             ),
             SizedBox(height: 50),
@@ -74,7 +74,7 @@ class AddItemsPage extends StatelessWidget {
         ),
       ),
     );
-  }
+  } 
 }
 
 class CategoryButton extends StatelessWidget {

@@ -67,12 +67,7 @@ class _VieworkState extends State<Viework> {
                                 Text('Out of stock'),
                               ],
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                // Add onPressed functionality
-                              },
-                              child: Text('Ok'),
-                            ),
+                           
                           ],
                         ),
                       ),

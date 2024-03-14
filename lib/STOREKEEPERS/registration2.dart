@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COMMON/login.dart';
 import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
-import 'package:flutter_application_1/USER/login.dart';
 
 
 class registration2 extends StatefulWidget {
@@ -11,6 +12,15 @@ class registration2 extends StatefulWidget {
 }
 
 class _registration2State extends State<registration2 > {
+  var name=TextEditingController();
+  var code=TextEditingController();
+  var phone_no=TextEditingController();
+
+ void getdata() async {
+    print('object');
+    await FirebaseFirestore.instance.collection('storekeepers').add(
+        {'name': name.text, 'password': code.text, 'number': phone_no.text});
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +45,7 @@ class _registration2State extends State<registration2 > {
                   child: Padding(
                     padding: const EdgeInsets.only(left:80,right:80),
                     child: TextFormField(
+                      controller: name,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('User_name')),
                     ),
                   ),
@@ -47,6 +58,7 @@ class _registration2State extends State<registration2 > {
                    child: Padding(
                      padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
+                      controller: code,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('Password')),
                                ),
                    ),
@@ -59,6 +71,7 @@ class _registration2State extends State<registration2 > {
                    child: Padding(
                      padding: const EdgeInsets.only(left:80,right:80),
                      child: TextFormField(
+                      controller: phone_no ,
                       decoration: InputDecoration(border:OutlineInputBorder() ,labelText: ('phone_no')),
                                ),
                    ),
@@ -66,9 +79,10 @@ class _registration2State extends State<registration2 > {
                  SizedBox(height:10),
                   InkWell(
     onTap: () {
-     Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return Login();
-     }));},
+    //  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    //    return Login();
+    //  }));
+     },
      child: Text('Have account?Login')),
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
@@ -77,11 +91,12 @@ class _registration2State extends State<registration2 > {
                 Padding(
   padding: const EdgeInsets.only(top:25),
   child: ElevatedButton(onPressed:(){
+    getdata();
  Navigator.push(context, MaterialPageRoute(builder: ((context) {
       return Storekeeper();
     })));
 
-  },child: Text('Signup'),),
+  },child: Text('Signin'),),
 ),
               ],
             ),
