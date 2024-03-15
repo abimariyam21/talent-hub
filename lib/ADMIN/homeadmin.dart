@@ -63,7 +63,7 @@ class CategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        // Navigate to the destination screen when the button is pressed
+       
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => destination),

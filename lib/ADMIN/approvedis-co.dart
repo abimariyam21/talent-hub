@@ -24,7 +24,7 @@ class _ApprovediscoState extends State<Approvedisco> {
                   padding: const EdgeInsets.only(right: 10),
                   child: InkWell(
                     onTap: () {
-                      // Implement your close button functionality here
+                     
                     },
                     child: Icon(Icons.close),
                   ),

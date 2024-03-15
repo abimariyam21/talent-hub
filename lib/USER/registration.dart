@@ -13,13 +13,14 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
     var name = TextEditingController();
+     var Email_Id=TextEditingController();
   var code = TextEditingController();
   var phone_no = TextEditingController();
 
   void getdata() async {
     print('object');
     await FirebaseFirestore.instance.collection('user').add(
-        {'name': name.text, 'password': code.text, 'number': phone_no.text});
+        {'name': name.text, 'Email_Id':Email_Id.text,'password': code.text, 'number': phone_no.text});
   }
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,21 @@ class _RegistrationState extends State<Registration> {
                   controller: name,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: ('User_name')),
+                ),
+              ),
+            ),
+            SizedBox(height: 05),
+             Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(' Email_Id'),
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 80, right: 80),
+                child: TextFormField(
+                  controller: Email_Id,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: ('Mail')),
                 ),
               ),
             ),

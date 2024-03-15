@@ -56,7 +56,7 @@ Padding(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _imageUrl != null
-                  ? Image.network(_imageUrl!, width: 100, height: 100)
+                  ? Image.network(_imageUrl!, width: 80, height: 80)
                   : Placeholder(
                       fallbackHeight: 100,
                       fallbackWidth: 100,
@@ -94,7 +94,7 @@ Padding(
                    Center(
                      child: Padding(
                        padding: const EdgeInsets.only(top: 50),
-                       child: ElevatedButton(
+                       child: ElevatedButton( 
                         onPressed: () {
                            Navigator.push(context, MaterialPageRoute(
                         builder: (context) {

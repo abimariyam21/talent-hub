@@ -110,10 +110,10 @@ class ViewWorksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('View Works'),
+        title: Text('Edit'),
       ),
       body: Center(
-        child: Text('This is the View Works page'),
+        child: Text('This is the Edit page'),
       ),
     );
   }

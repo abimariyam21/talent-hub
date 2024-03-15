@@ -50,7 +50,7 @@ class _ViewskState extends State<Viewsk> {
                                     children: [
                                       Column(
                                         children: [
-                                          Text('Place:'),
+                                          Text('Number'),
                                            
                                         ],
                                       ),

@@ -39,7 +39,7 @@ class _ApproveclgState extends State<Approveclg> {
                child:Padding(
                  padding: const EdgeInsets.only(top: 40),
                  child: 
-                 Text(('Works'),
+                 Text(('Colleges'),
                  style: TextStyle(
                   fontSize: 30,fontWeight: FontWeight.bold),
                   
@@ -59,7 +59,7 @@ class _ApproveclgState extends State<Approveclg> {
                               padding: const EdgeInsets.all(8.0),
                               child: ListTile(
                                 title:
-                                        Text('Colleges'),
+                                        Text('College'),
                                         subtitle:
                                         Column(
                                           children: [

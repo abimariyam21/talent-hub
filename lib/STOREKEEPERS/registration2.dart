@@ -13,13 +13,14 @@ class registration2 extends StatefulWidget {
 
 class _registration2State extends State<registration2 > {
   var name=TextEditingController();
+   var Email_Id=TextEditingController();
   var code=TextEditingController();
   var phone_no=TextEditingController();
 
  void getdata() async {
     print('object');
     await FirebaseFirestore.instance.collection('storekeepers').add(
-        {'name': name.text, 'password': code.text, 'number': phone_no.text});
+        {'name': name.text, 'Email_Id':Email_Id.text,'password': code.text, 'number': phone_no.text});
   }
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,21 @@ class _registration2State extends State<registration2 > {
                     ),
                   ),
                 ),
+                 Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(' Email_Id'),
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 80, right: 80),
+                child: TextFormField(
+                  controller: name,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: ('mail')),
+                ),
+              ),
+            ),
+            SizedBox(height: 05),
                 SizedBox(height:05),
                  Padding(
                    padding: const EdgeInsets.only(top:10,bottom:10),
@@ -76,14 +92,7 @@ class _registration2State extends State<registration2 > {
                                ),
                    ),
                  ),
-                 SizedBox(height:10),
-                  InkWell(
-    onTap: () {
-    //  Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //    return Login();
-    //  }));
-     },
-     child: Text('Have account?Login')),
+                
                  Padding(
                    padding: const EdgeInsets.only(left: 450,right:450,top:20,bottom:10),
                    child: Image.asset('picture/logo.JPG'),

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/USER/page2.dart';
-
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rating extends StatefulWidget {
@@ -12,6 +9,8 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
+  double _userRating = 0.0; // User's own rating
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +20,7 @@ class _RatingState extends State<Rating> {
         backgroundColor: Colors.red[100],
         leading: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Page2();
-            }));
+            Navigator.pop(context); // Pop the current route
           },
           child: Icon(Icons.close),
         ),
@@ -33,16 +30,18 @@ class _RatingState extends State<Rating> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildRatingBar('Person 1'),
-            SizedBox(height: 20),
-            _buildRatingBar('Person 2'),
+            _buildRatingBar('Person 1', 3), // Existing ratings
+            SizedBox(height: 5),
+            _buildRatingBar('Person 2', 4.5), // Existing ratings
+            SizedBox(height: 5),
+            _buildUserRatingBar(), // User's own rating
           ],
         ),
       ),
     );
   }
 
-  Widget _buildRatingBar(String personName) {
+  Widget _buildRatingBar(String personName, double rating) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -57,13 +56,13 @@ class _RatingState extends State<Rating> {
         Row(
           children: [
             Container(
-              height: 170,
+              height: 100,
               width: 100,
-              child: Image.asset('picture/pencil_drawing.jpg'),
+              child: Image.asset('picture/pencil_drawing.jpg'), // Adjust the asset path accordingly
             ),
             SizedBox(width: 20),
             RatingBar.builder(
-              initialRating: 3,
+              initialRating: rating,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: true,
@@ -74,8 +73,9 @@ class _RatingState extends State<Rating> {
                 Icons.star,
                 color: Colors.amber,
               ),
+              ignoreGestures: true, // Disable user interaction for existing ratings
               onRatingUpdate: (rating) {
-                print(rating);
+                // This callback is disabled for existing ratings
               },
             ),
           ],
@@ -84,4 +84,59 @@ class _RatingState extends State<Rating> {
       ],
     );
   }
+Widget _buildUserRatingBar() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        'Your Rating',
+        style: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      SizedBox(height: 10),
+      RatingBar.builder(
+        initialRating: _userRating,
+        minRating: 0,
+        direction: Axis.horizontal,
+        allowHalfRating: true,
+        itemCount: 5,
+        itemSize: 30,
+        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+        itemBuilder: (context, _) => Icon(
+          Icons.star,
+          color: Colors.amber,
+        ),
+        onRatingUpdate: (rating) {
+          setState(() {
+            _userRating = rating;
+          });
+        },
+      ),
+      SizedBox(height: 10),
+      TextField(
+        decoration: InputDecoration(
+          hintText: 'Add your ratings...',
+          border: OutlineInputBorder(),
+          suffixIcon: IconButton(
+            icon: Icon(Icons.check),
+            onPressed: () {
+              // Handle OK button press
+            },
+          ),
+        ),
+        maxLines: 3,
+      ),
+      SizedBox(height: 20),
+    ],
+  );
+}
+
+ 
+void main() {
+  runApp(MaterialApp(
+    home: Rating(),
+  ));
+}
 }

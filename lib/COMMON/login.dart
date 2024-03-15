@@ -1,94 +1,241 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ADMIN/adviewsk.dart';
 import 'package:flutter_application_1/ADMIN/homeadmin.dart';
-
+import 'package:flutter_application_1/COLLEGE/clghome.dart';
+import 'package:flutter_application_1/DIS-CO/homedisco.dart';
+import 'package:flutter_application_1/USER/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key, required String type});
- 
+  String type;
+  Login({super.key, required this.type});
+
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-   var Mail_id=TextEditingController();
-  var password=TextEditingController();
- 
-Future<void> checkdata() async {
-  if(Mail_id.text=='admin@123' && password.text=='admin123')
-  {
-    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return Adminhome();
-                        },
-                      ));
+  
+  var password = TextEditingController();
+  var name = TextEditingController();
+  Future<void> checkdata() async {
+    if (name.text == 'admin@123' && password.text == 'admin123') {
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return Adminhome();
+        },
+      ));
+    }
+    if (widget.type == 'user') {
+      final QuerySnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('user')
+          .where('name', isEqualTo: name.text)
+          .where('password', isEqualTo: password.text)
+          // .where('status', isEqualTo: 1)
+          .get();
+    
+      if (userSnapshot.docs.isNotEmpty) {
+        var userid = userSnapshot.docs[0].id;
+        SharedPreferences sp = await SharedPreferences.getInstance();
+        sp.setString('uid', userid);
+
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return Mynavigationbar();
+          },
+        ));
+      } else {
+       
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Failed'),
+            content: Text('Invalid username or password. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+
+    if (widget.type == 'storekeepers') {
+      final QuerySnapshot storekeepersSnapshot =
+          await FirebaseFirestore.instance
+              .collection('storekeepers')
+              .where('name', isEqualTo: name.text)
+              .where('password', isEqualTo: password.text)
+              // .where('status', isEqualTo: 1)
+              .get();
+
+               if (storekeepersSnapshot.docs.isNotEmpty) {
+        var userid = storekeepersSnapshot.docs[0].id;
+        SharedPreferences sp = await SharedPreferences.getInstance();
+        sp.setString('uid', userid);
+
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return Storekeeper();
+          },
+        ));
+      } else {
+       
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Failed'),
+            content: Text('Invalid username or password. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }       
+    }
+    
+    if (widget.type == 'college') {
+      final QuerySnapshot collegeSnapshot = await FirebaseFirestore.instance
+          .collection('college')
+          .where('name', isEqualTo: name.text)
+          .where('password', isEqualTo: password.text)
+          // .where('status', isEqualTo: 1)
+          .get();
+           if (collegeSnapshot.docs.isNotEmpty) {
+        var userid = collegeSnapshot.docs[0].id;
+        SharedPreferences sp = await SharedPreferences.getInstance();
+        sp.setString('uid', userid);
+
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return College();
+          },
+        ));
+      } else {
+       
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Failed'),
+            content: Text('Invalid username or password. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }     
+    }
+    if (widget.type == 'coordinators') {
+      final QuerySnapshot coordinatorsSnapshot =
+          await FirebaseFirestore.instance
+              .collection('coordinators')
+              .where('name', isEqualTo: name.text)
+              .where('password', isEqualTo: password.text)
+              // .where('status', isEqualTo: 1)
+              .get();
+               if (coordinatorsSnapshot.docs.isNotEmpty) {
+        var userid = coordinatorsSnapshot.docs[0].id;
+        SharedPreferences sp = await SharedPreferences.getInstance();
+        sp.setString('uid', userid);
+
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return Homedisco();
+          },
+        ));
+      } else {
+       
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Failed'),
+            content: Text('Invalid username or password. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }     
+    }
   }
-
-
-}
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      Container(
+      body: Container(
         child: Column(
           children: [
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 100,bottom: 10),
-                child: Text('Login',
-                     style:TextStyle(color:Color.fromRGBO(45, 124, 222,27),
-                     fontSize:40,
-                     fontWeight:FontWeight.bold ),),
+                padding: const EdgeInsets.only(top: 100, bottom: 10),
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                      color: Color.fromRGBO(45, 124, 222, 27),
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
-             Padding(
-       padding: const EdgeInsets.only(top: 30,bottom: 10),
-       child: Text('Email'),
-     ),
-     Container(
-       child: Padding(
-         padding: const EdgeInsets.only(left: 50,right: 50),
-         child: TextFormField(
-          controller: Mail_id,
-          decoration: InputDecoration(border: OutlineInputBorder(),labelText: ('Mail_id')),
-         ),
-       ),
-     ),
-     SizedBox(height: 05),
-      Padding(
-       padding: const EdgeInsets.only(top: 30,bottom: 10),
-       child: Text('Password'),
-     ),
-     Container(
-       child: Padding(
-         padding: const EdgeInsets.only(left: 50,right: 50),
-         child: TextFormField(
-          controller: password,
-          decoration: InputDecoration(border: OutlineInputBorder(),labelText: ('6 digits')),
-         ),
-       ),
-     ),
-     SizedBox(height: 05),
-      Padding(
-  padding: const EdgeInsets.only(top:60),
-  child: ElevatedButton(onPressed:(){
-    checkdata();
+            Padding(
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
+              child: Text('name'),
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 50, right: 50),
+                child: TextFormField(
+                  controller: name,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: ('name')),
+                ),
+              ),
+            ),
+            SizedBox(height: 05),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
+              child: Text('Password'),
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 50, right: 50),
+                child: TextFormField(
+                  controller: password,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: ('6 digits')),
+                ),
+              ),
+            ),
+            SizedBox(height: 05),
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: ElevatedButton(
+                onPressed: () {
+                  checkdata();
 //  Navigator.push(context, MaterialPageRoute(
 //                         builder: (context) {
 //                           return Adminhome();
 //                         },
 //                       ));
-
-  },
-  child:Text('Login'),),
-),
+                },
+                child: Text('Login'),
+              ),
+            ),
           ],
         ),
       ),
-     
-     );
-  } 
-} 
+    );
+  }
+}
