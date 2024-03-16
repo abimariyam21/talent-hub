@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -9,8 +10,14 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
+  var ratingbar = TextEditingController();
   double _userRating = 0.0; // User's own rating
-
+ void getdata() async {
+    print('object');
+   
+    await FirebaseFirestore.instance.collection('ratingbar').add(
+        {'ratingbar':ratingbar .text});
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +34,17 @@ class _RatingState extends State<Rating> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildRatingBar('Person 1', 3), // Existing ratings
-            SizedBox(height: 5),
-            _buildRatingBar('Person 2', 4.5), // Existing ratings
-            SizedBox(height: 5),
-            _buildUserRatingBar(), // User's own rating
-          ],
+        child:SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildRatingBar('Person 1', 3), // Existing ratings
+              SizedBox(height: 5),
+              _buildRatingBar('Person 2', 4.5), // Existing ratings
+              SizedBox(height: 5),
+              _buildUserRatingBar(), // User's own rating
+            ],
+          ),
         ),
       ),
     );
@@ -116,12 +125,14 @@ Widget _buildUserRatingBar() {
       ),
       SizedBox(height: 10),
       TextField(
+      controller: ratingbar,
         decoration: InputDecoration(
           hintText: 'Add your ratings...',
           border: OutlineInputBorder(),
           suffixIcon: IconButton(
             icon: Icon(Icons.check),
             onPressed: () {
+              getdata();
               // Handle OK button press
             },
           ),

@@ -4,9 +4,6 @@ import 'package:flutter_application_1/USER/home0.dart';
 import 'package:flutter_application_1/USER/note.dart';
 import 'package:flutter_application_1/USER/profile.dart';
 
-
-import 'package:image_picker/image_picker.dart';
-
 class Mynavigationbar extends StatefulWidget {
   const Mynavigationbar({super.key});
 
@@ -18,7 +15,7 @@ class MynavigationbarState extends State<Mynavigationbar> {
   int _selectedIndex = 0;
   static const List<dynamic> _widgetoptions = [
     Home0(),
-    ImagePickerPage(),
+    AddProduct(),
     Profile()
   ];
 

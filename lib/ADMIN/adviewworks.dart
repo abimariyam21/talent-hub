@@ -46,16 +46,16 @@ class _AdviewworksState extends State<Adviewworks> {
                               padding: const EdgeInsets.all(8.0),
                               child: ListTile(
                                 title:
-                                        Text('Name of the Shopkeeper'),
+                                        Text('Orders'),
                                         subtitle:
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
                                             Column(
                                               children: [
-                                                Text('Sold'),
-                                                Text('Bought'),
-                                                Text('Out of stock'),
+                                                Text('Name of the product & detais'),
+                                                Text('Name of the user & details'),
+                                                Text('Number of items'),
                                               ],
                                             ),
                                           ],

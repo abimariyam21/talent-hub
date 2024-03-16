@@ -26,6 +26,7 @@ class _Page1State extends State<Page1> {
           },
           child: Icon(Icons.close),
         ),
+       
       ),
       body: GridView.count(
         crossAxisCount: 2,

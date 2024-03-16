@@ -52,7 +52,7 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Review Your Order'),
+        title: Center(child: Text('CART',selectionColor:const Color.fromARGB(255, 228, 134, 244),)),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
@@ -60,15 +60,18 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Delivery Address:',
+              'Delivery Address & details:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            Text('123 Main St, City, Country'),
+            Text('Name,Use_id,123 Main St, City, Country'),
             SizedBox(height: 20),
-            Text(
-              'Your Order Details:',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                'Your Order Details:',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
             SizedBox(height: 10),
             OrderDetailCard(
@@ -79,9 +82,12 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
               onDecrement: () => _decrementQuantity(1),
             ),
             
-            Text(
-              'Product Total Price: \$${(_item1Quantity * 10.99 + _item2Quantity * 5.99).toStringAsFixed(2)}',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: Text(
+                'Product Total Price: \$${(_item1Quantity * 10 ).toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -127,7 +133,7 @@ class OrderDetailCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Quantity: $quantity'),
-            Text('Price: \$${price.toStringAsFixed(2)}'),
+            Text('Price: \Rs${price.toStringAsFixed(2)}'),
           ],
         ),
         trailing: Row(

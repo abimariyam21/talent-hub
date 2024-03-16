@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/Registration4.dart';
+import 'package:flutter_application_1/COMMON/logo.dart';
 import 'package:flutter_application_1/COMMON/splash.dart';
 import 'package:flutter_application_1/STOREKEEPERS/registration2.dart';
 import 'package:flutter_application_1/DIS-CO/registration3.dart';
@@ -17,7 +18,6 @@ import 'package:flutter_application_1/USER/registration.dart';
 import 'package:flutter_application_1/addhome.dart';
 import 'package:flutter_application_1/ADMIN/approvedis-co.dart';
 import 'package:flutter_application_1/USER/home.dart';
-
 import 'package:flutter_application_1/admin/approvedisco.dart';
 import 'package:flutter_application_1/USER/cart.dart';
 import 'package:flutter_application_1/USER/home.dart';
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 150, 87, 158)),
         useMaterial3: true,
       ),
-      home:Mypage(),
+      home:Page2(),
     );
   }
 }

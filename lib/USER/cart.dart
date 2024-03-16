@@ -28,11 +28,11 @@ class CartPage extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 30),
           child: Text(
-            'Cart',
+            ' Talent hub',
             style: TextStyle(
               fontStyle: FontStyle.italic,
               fontSize: 40,
-              color: Color.fromARGB(232, 230, 82, 131),
+              color: Color.fromARGB(232, 210, 82, 131),
               fontWeight: FontWeight.bold,
              
             ),
@@ -50,7 +50,7 @@ class CartPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: Text(
-                  'Your Cart',
+                  'Purchase again',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -58,7 +58,7 @@ class CartPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: Text(
-                'Add items to your cart to proceed',
+                'YOUR PRODUCT IS ALMOST VERIFIED',
                 style: TextStyle(fontSize: 20),
               ),
             ),

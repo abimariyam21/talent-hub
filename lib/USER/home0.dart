@@ -36,7 +36,7 @@ class _Home0State extends State<Home0> {
               decoration: InputDecoration(
                 labelText: 'Search',
                 prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(80)),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
               ),
             ),
           ),
