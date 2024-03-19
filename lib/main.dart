@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/Registration4.dart';
+import 'package:flutter_application_1/ADMIN/viewclg.dart';
 import 'package:flutter_application_1/COMMON/logo.dart';
 import 'package:flutter_application_1/COMMON/splash.dart';
 import 'package:flutter_application_1/STOREKEEPERS/registration2.dart';
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 150, 87, 158)),
         useMaterial3: true,
       ),
-      home:Page2(),
+      home:Cart(),
     );
   }
 }

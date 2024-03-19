@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/COLLEGE/clghome.dart';
 import 'package:flutter_application_1/COLLEGE/viewstd.dart';
 
 class Viewclg extends StatefulWidget {
@@ -10,6 +12,10 @@ class Viewclg extends StatefulWidget {
 }
 
 class _ViewclgState extends State<Viewclg> {
+  Future<QuerySnapshot<Map<String,dynamic>>> getData() async {//backend 
+    QuerySnapshot<Map<String,dynamic>> querySnapshot = await FirebaseFirestore.instance.collection('ratingbar').get();
+    return querySnapshot;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,46 +53,55 @@ class _ViewclgState extends State<Viewclg> {
                ),
               ),
               Expanded(
-                child: ListView.builder(
-                    itemCount: 10, 
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 20,right: 20),
-                        child: Card(
-                          elevation: 5,
-                          color: Color.fromARGB(255, 241, 205, 175),
-                          child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ListTile(
-                                title:
-                                        Text('College'),
-                                        subtitle:
-                                        Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
+                child: FutureBuilder(
+                   future: getData(),
+                    builder: (context,snapshot) {
+                      final college = snapshot.data!.docs??[];
+               
+                    return ListView.builder(
+                        itemCount: college.length, 
+                        itemBuilder: (context, index) {
+                           var usr = college[index].data() as Map<String,dynamic>;
+      
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 20,right: 20),
+                            child: Card(
+                              elevation: 5,
+                              color: Color.fromARGB(255, 241, 205, 175),
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ListTile(
+                                    title:
+                                            Text('College'),
+                                            subtitle:
+                                            Column(
                                               children: [
-                                                Column(
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.start,
                                                   children: [
-                                                    Text('Name'),
-                                                    Text('Email'),
-                                                    Text('Contact'),
-                                                    Text('Details'),
+                                                    Column(
+                                                      children: [
+                                                        Text('name'),
+                                                        Text('mail'),
+                                                        Text('number'),
+                                                        Text('password'),
+                                                      ],
+                                                    ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
+                                              
+                                            
+                                            
                                           
-                                        
-                                        
-                                      
-                                         
-            ])),
-                                       ),
-                        ),
-                      );
-                      
-                    }),
+                                             
+                                ])),
+                                           ),
+                            ),
+                          );
+                          
+                        });
+                  }
+                ),
               ),
             ],
           ),

@@ -103,7 +103,7 @@ class _RegistrationState extends State<Registration> {
               child: Image.asset('picture/logo.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 25),
+              padding: const EdgeInsets.only(top: 25), 
               child: ElevatedButton(
                 onPressed: () {
                   getdata();

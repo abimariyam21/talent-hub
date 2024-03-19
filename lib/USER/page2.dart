@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/USER/order.dart';
 import 'package:flutter_application_1/USER/page1.dart';
 import 'package:flutter_application_1/USER/rating.dart';
@@ -8,7 +9,6 @@ class Page2 extends StatefulWidget {
   @override
   State<Page2> createState() => _Page2State();
 }
-
 class _Page2State extends State<Page2> {
   TextEditingController _searchController = TextEditingController();
   List<String> allItems = [
@@ -106,7 +106,12 @@ class _Page2State extends State<Page2> {
                               Text(
                                 'Cost: 250',
                                 style: TextStyle(fontSize: 16),
+                                
                               ),
+                              Text('Quantity:5',
+                               style: TextStyle(fontSize: 16),
+                              )
+                              
                             ],
                           ),
                           Column(
@@ -119,14 +124,7 @@ class _Page2State extends State<Page2> {
                                 },
                                 child: Text('Add to cart'),
                               ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                    return Page1();
-                                  }));
-                                },
-                                child: Text('Cancel'),
-                              ),
+                             
                             ],
                           ),
                         ],

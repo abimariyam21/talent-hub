@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/USER/page1.dart';
 import 'package:flutter_application_1/USER/paymentdone.dart';
 
 
@@ -76,6 +77,14 @@ class CartPage extends StatelessWidget {
               },
               child: Text('OK'),
             ),
+             ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return Page1();
+                                  }));
+                                },
+                                child: Text('Cancel'),
+                              ),
           ],
         ),
       ),

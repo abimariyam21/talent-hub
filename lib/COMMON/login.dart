@@ -215,7 +215,7 @@ class _LoginState extends State<Login> {
                   child: TextFormField(
                     controller: password,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: ('6 digits')),
+                        border: OutlineInputBorder(), labelText: ('password')),
                   ),
                 ),
               ),

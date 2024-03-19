@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/USER/cart.dart';
 
-
 void main() {
   runApp(OrderItemPage());
 }
@@ -27,6 +26,7 @@ class ReviewOrderPage extends StatefulWidget {
 class _ReviewOrderPageState extends State<ReviewOrderPage> {
   int _item1Quantity = 2;
   int _item2Quantity = 1;
+  double _item1Price = 100.99; // Price per item
 
   void _incrementQuantity(int index) {
     setState(() {
@@ -50,9 +50,11 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
 
   @override
   Widget build(BuildContext context) {
+    double totalItem1Price = _item1Quantity * _item1Price;
+
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('CART',selectionColor:const Color.fromARGB(255, 228, 134, 244),)),
+        title: Center(child: Text('CART', selectionColor: const Color.fromARGB(255, 228, 134, 244),)),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
@@ -64,7 +66,7 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            Text('Name,Use_id,123 Main St, City, Country'),
+            Text('Name, Use_id, 123 Main St, City, Country'),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(10),
@@ -77,15 +79,14 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
             OrderDetailCard(
               itemName: 'Item 1',
               quantity: _item1Quantity,
-              price: 10.99,
+              price: _item1Price,
               onIncrement: () => _incrementQuantity(1),
               onDecrement: () => _decrementQuantity(1),
             ),
-            
             Padding(
               padding: const EdgeInsets.only(top: 60),
               child: Text(
-                'Product Total Price: \$${(_item1Quantity * 10 ).toStringAsFixed(2)}',
+                'Product Total Price: \$${totalItem1Price.toStringAsFixed(2)}',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
@@ -133,7 +134,7 @@ class OrderDetailCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Quantity: $quantity'),
-            Text('Price: \Rs${price.toStringAsFixed(2)}'),
+            Text('Price: \$${price.toStringAsFixed(2)}'),
           ],
         ),
         trailing: Row(
