@@ -12,100 +12,95 @@ class Viewclg extends StatefulWidget {
 }
 
 class _ViewclgState extends State<Viewclg> {
-  Future<QuerySnapshot<Map<String,dynamic>>> getData() async {//backend 
-    QuerySnapshot<Map<String,dynamic>> querySnapshot = await FirebaseFirestore.instance.collection('ratingbar').get();
+  Future<QuerySnapshot<Map<String, dynamic>>> getData() async {
+    //backend
+    QuerySnapshot<Map<String, dynamic>> querySnapshot =
+        await FirebaseFirestore.instance.collection('college').get();
+        print(querySnapshot);
     return querySnapshot;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-    Column(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 60, left: 300),
+            child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Viewstd();
+                  }));
+                },
+                child: Icon(Icons.people_rounded)),
+          ),
+          Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 60,left: 300),
-                child: InkWell(
-                    onTap: () {
-     Navigator.push(context, MaterialPageRoute(builder: (context) {
-       return Viewstd();
-     }));
-    },child: Icon(Icons.people_rounded)),
-              ),
-               Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(),
-              
-                    child: Icon(Icons.close),
-                     
-                  ),
-                ],
-              ),
-              Center(
-               child:Padding(
-                 padding: const EdgeInsets.only(top: 40),
-                 child: 
-                 Text(('Colleges'),
-                 style: TextStyle(
-                  fontSize: 30,fontWeight: FontWeight.bold),
-                  
-                  ),
-               ),
-              ),
-              Expanded(
-                child: FutureBuilder(
-                   future: getData(),
-                    builder: (context,snapshot) {
-                      final college = snapshot.data!.docs??[];
-               
-                    return ListView.builder(
-                        itemCount: college.length, 
-                        itemBuilder: (context, index) {
-                           var usr = college[index].data() as Map<String,dynamic>;
-      
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 20,right: 20),
-                            child: Card(
-                              elevation: 5,
-                              color: Color.fromARGB(255, 241, 205, 175),
-                              child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ListTile(
-                                    title:
-                                            Text('College'),
-                                            subtitle:
-                                            Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Column(
-                                                      children: [
-                                                        Text('name'),
-                                                        Text('mail'),
-                                                        Text('number'),
-                                                        Text('password'),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              
-                                            
-                                            
-                                          
-                                             
-                                ])),
-                                           ),
-                            ),
-                          );
-                          
-                        });
-                  }
-                ),
+                padding: EdgeInsets.only(),
+                child: Icon(Icons.close),
               ),
             ],
           ),
-        
-      );
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Text(
+                ('Colleges'),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            child: FutureBuilder(
+                future: getData(),
+                builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting){
+                     return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+                  
+                  final college = snapshot.data!.docs ?? [];
+
+                  return ListView.builder(
+                      itemCount: college.length,
+                      itemBuilder: (context, index) {
+                        var clg = college[index].data() as Map<String, dynamic>;
+
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: Card(
+                            elevation: 5,
+                            color: Color.fromARGB(255, 241, 205, 175),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListTile(
+                                  title: Text(clg['name']),
+                                  subtitle: 
+                                   Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(clg['mail']),
+                                Text(clg['number']),
+                                Text(clg['password'])
+                              ],
+                            ),
+                                  
+                            ),
+                          ),
+                        ));
+                      });
+                }),
+          ),
+        ],
+      ),
+    );
   }
 }

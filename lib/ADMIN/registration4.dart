@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/homeadmin.dart';
-import 'package:flutter_application_1/COMMON/login.dart';
 import 'package:flutter_application_1/DIS-CO/approveclg.dart';
 import 'package:flutter_application_1/DIS-CO/homedisco.dart';
 

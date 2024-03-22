@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/Viewstdadmin.dart';
+import 'package:flutter_application_1/ADMIN/adviewfbks.dart';
+import 'package:flutter_application_1/ADMIN/adviewworks.dart';
 import 'package:flutter_application_1/ADMIN/approvedis-co.dart';
+import 'package:flutter_application_1/ADMIN/approvedisco.dart';
 import 'package:flutter_application_1/ADMIN/viewclg.dart';
 import 'package:flutter_application_1/COLLEGE/viewstd.dart';
 
 import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
 import 'package:flutter_application_1/STOREKEEPERS/viework.dart';
+import 'package:flutter_application_1/admin/approvedis-co.dart';
 
 
 
@@ -27,7 +31,7 @@ class Adminhome extends StatelessWidget {
             Text('Works'),
             Padding(
               padding: const EdgeInsets.only(top: 50, bottom: 25),
-              child: CategoryButton(category: 'View coordinators', destination: Approvedisco()),
+              child: CategoryButton(category: 'View coordinators', destination:Approvedisco2()),
             ),
             Padding(
               padding: const EdgeInsets.all(25),
@@ -35,16 +39,15 @@ class Adminhome extends StatelessWidget {
             ),
              Padding(
               padding: const EdgeInsets.all(25),
-              child: CategoryButton(category: 'View storekeepers', destination: Storekeeper()),
+              child: CategoryButton(category: 'Storekeepers', destination: Adiewfbks()),
             ),
-           
             Padding(
               padding: const EdgeInsets.all(25),
               child: CategoryButton(category: 'View students', destination:Viewstds()),
             ),
             Padding(
               padding: const EdgeInsets.all(25),
-              child: CategoryButton(category: 'View works', destination: Viework()),
+              child: CategoryButton(category: 'View works', destination:Adviewworks()),
             ),
           ],
         ),

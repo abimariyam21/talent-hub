@@ -1,22 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/STOREKEEPERS/skworks.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class Viewfbks extends StatefulWidget {
-  const Viewfbks({Key? key});
+class Adiewfbks extends StatefulWidget {
+  const Adiewfbks({Key? key});
 
   @override
-  State<Viewfbks> createState() => _ViewfbksState();
+  State<Adiewfbks> createState() => _AdiewfbksState();
 }
 
-class _ViewfbksState extends State<Viewfbks> {
+class _AdiewfbksState extends State<Adiewfbks> {
   Future<QuerySnapshot<Map<String, dynamic>>> getData() async {
     //backend
     QuerySnapshot<Map<String, dynamic>> querySnapshot =
         await FirebaseFirestore.instance.collection('ratingbar').get();
+        print(querySnapshot);
     return querySnapshot;
   }
 
@@ -32,25 +30,22 @@ class _ViewfbksState extends State<Viewfbks> {
                 child: IconButton(
                   icon: Icon(Icons.close),
                   onPressed: () {
-                   
-                  
+                    // Add functionality here if needed
                   },
                 ),
               ),
             ],
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Text(
-                'View feedbacks',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Text(
+              'View feedbacks',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
             child: FutureBuilder(
-              future: FirebaseFirestore.instance.collection('ratingbar').get(),
+              future: getData(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
@@ -62,28 +57,28 @@ class _ViewfbksState extends State<Viewfbks> {
                     child: Text('Error: ${snapshot.error}'),
                   );
                 }
+                
                 final ratingBar = snapshot.data!.docs;
+                print(ratingBar);
 
-                return Flexible(
-                  child: ListView.builder(
-                    itemCount: ratingBar.length,
-                    itemBuilder: (context, index) {
-                      var rtb = ratingBar[index].data() as Map<String, dynamic>;
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                        child: Card(
-                          elevation: 5,
-                          color: Color.fromARGB(255, 179, 198, 212),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              title: Text(rtb['ratingbar']),
-                            ),
+                return ListView.builder(
+                  itemCount: ratingBar.length,
+                  itemBuilder: (context, index) {
+                    var rtb = ratingBar[index].data() as Map<String, dynamic>;
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                      child: Card(
+                        elevation: 5,
+                        color: Color.fromARGB(255, 179, 198, 212),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            title: Text(rtb['ratingbar']),
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 );
               },
             ),
@@ -93,4 +88,3 @@ class _ViewfbksState extends State<Viewfbks> {
     );
   }
 }
-

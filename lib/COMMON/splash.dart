@@ -17,6 +17,7 @@ class _MypageState extends State<Mypage> {
       appBar: AppBar(
         title: Text('Select User Type'),
         centerTitle: true,
+        leading:Icon (Icons.app_registration),
       ),
       body: Stack(
         children: [
@@ -29,7 +30,7 @@ class _MypageState extends State<Mypage> {
           SingleChildScrollView(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -42,7 +43,7 @@ class _MypageState extends State<Mypage> {
                         color: Color.fromARGB(255, 48, 172, 254),
                       ),
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 10.0),
                     _buildButton(context, 'User', Icons.person, Login(type: 'user')),
                     _buildButton(context, 'Admin', Icons.admin_panel_settings, Login(type: 'admin')),
                     _buildButton(context, 'Storekeepers', Icons.shop_rounded, Login(type: 'storekeepers')),
@@ -59,7 +60,7 @@ class _MypageState extends State<Mypage> {
                         style: TextStyle(
                           fontSize: 16.0,
                           color: Color.fromRGBO(50, 70, 180, 30),
-                        ),
+                        ), 
                       ),
                     ),
                   ],

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/USER/cart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(OrderItemPage());
 }
 
 class OrderItemPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,6 +24,21 @@ class ReviewOrderPage extends StatefulWidget {
   @override
   _ReviewOrderPageState createState() => _ReviewOrderPageState();
 }
+Future<void> getUserDetails() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();//calling shared preference to new page
+    setState(() {
+           
+
+      var userName = prefs.getString('name') ?? '';
+     
+     var userPhone = prefs.getString('number') ?? '';
+      var userEmail = prefs.getString('Email Id') ?? '';
+      
+
+    });}
+    
+    void setState(Null Function() param0) {//
+    }
 
 class _ReviewOrderPageState extends State<ReviewOrderPage> {
   int _item1Quantity = 2;
@@ -66,7 +83,7 @@ class _ReviewOrderPageState extends State<ReviewOrderPage> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            Text('Name, Use_id, 123 Main St, City, Country'),
+            Text(userName),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(10),

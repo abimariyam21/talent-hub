@@ -4,6 +4,7 @@ import 'package:flutter_application_1/COLLEGE/approvestd.dart';
 import 'package:flutter_application_1/COLLEGE/viework.dart';
 import 'package:flutter_application_1/COLLEGE/viewstd.dart';
 import 'package:flutter_application_1/DIS-CO/approveclg.dart';
+import 'package:flutter_application_1/DIS-CO/notice.dart';
 
 void main() {
   runApp(Homedisco());
@@ -62,7 +63,11 @@ class AddItemsPage extends StatelessWidget {
               category: 'View students',
               destination: Viewstd(),
             ),
-           
+            SizedBox(height: 25),
+            CategoryButton(
+              category: 'Notification',
+              destination:  Notice(),
+            ),
           ],
         ),
       ),

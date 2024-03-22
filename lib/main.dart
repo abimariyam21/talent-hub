@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 150, 87, 158)),
         useMaterial3: true,
       ),
-      home:Cart(),
+      home:Logo(),
     );
   }
 }

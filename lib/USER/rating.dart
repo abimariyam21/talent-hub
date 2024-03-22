@@ -93,7 +93,7 @@ class _RatingState extends State<Rating> {
       ],
     );
   }
-Widget _buildUserRatingBar() {
+ Widget _buildUserRatingBar() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -105,37 +105,44 @@ Widget _buildUserRatingBar() {
         ),
       ),
       SizedBox(height: 10),
-      RatingBar.builder(
-        initialRating: _userRating,
-        minRating: 0,
-        direction: Axis.horizontal,
-        allowHalfRating: true,
-        itemCount: 5,
-        itemSize: 30,
-        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-        itemBuilder: (context, _) => Icon(
-          Icons.star,
-          color: Colors.amber,
-        ),
-        onRatingUpdate: (rating) {
-          setState(() {
-            _userRating = rating;
-          });
-        },
-      ),
-      SizedBox(height: 10),
-      TextField(
-      controller: ratingbar,
-        decoration: InputDecoration(
-          hintText: 'Add your ratings...',
-          border: OutlineInputBorder(),
-          suffixIcon: IconButton(
+      Row(
+        children: [
+          Expanded(
+            child: RatingBar.builder(
+              initialRating: _userRating,
+              minRating: 0,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemSize: 30,
+              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              onRatingUpdate: (rating) {
+                setState(() {
+                  _userRating = rating;
+                });
+              },
+            ),
+          ),
+          SizedBox(width: 10),
+          IconButton(
             icon: Icon(Icons.check),
             onPressed: () {
               getdata();
               // Handle OK button press
             },
           ),
+        ],
+      ),
+      SizedBox(height: 10),
+      TextField(
+        controller: ratingbar,
+        decoration: InputDecoration(
+          hintText: 'Add your ratings...',
+          border: OutlineInputBorder(),
         ),
         maxLines: 3,
       ),
@@ -144,7 +151,6 @@ Widget _buildUserRatingBar() {
   );
 }
 
- 
 void main() {
   runApp(MaterialApp(
     home: Rating(),

@@ -1,3 +1,5 @@
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Adviewworks extends StatefulWidget {
@@ -8,6 +10,12 @@ class Adviewworks extends StatefulWidget {
 }
 
 class _AdviewworksState extends State<Adviewworks> {
+  Future<QuerySnapshot<Map<String,dynamic>>> getData() async {
+      QuerySnapshot<Map<String, dynamic>> querySnapshot =
+        await FirebaseFirestore.instance.collection('Product').get();
+        print(querySnapshot);
+    return querySnapshot;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,37 +42,56 @@ class _AdviewworksState extends State<Adviewworks> {
                ),
               ),
               Expanded(
-                child: ListView.builder(
-                    itemCount: 30, 
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 20,right: 20),
-                        child: Card(
-                          elevation: 5,
-                          color: Color.fromARGB(255, 241, 205, 175),
-                          child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ListTile(
-                                title:
-                                        Text('Orders'),
-                                        subtitle:
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                Text('Name of the product & detais'),
-                                                Text('Name of the user & details'),
-                                                Text('Number of items'),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        
-                                       )),
-                        ),
-                      );
-                    }),
+                child: FutureBuilder(
+                  future: getData(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+                
+                final Product = snapshot.data!.docs;
+                print(Product);
+
+                  return ListView.builder(
+                      itemCount: Product.length, 
+                      itemBuilder: (context, index) {
+                        var prdt = Product[index].data() as Map<String, dynamic>;
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 20,right: 20),
+                          child: Card(
+                            elevation: 5,
+                            color: Color.fromARGB(255, 241, 205, 175),
+                            child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ListTile(
+                                  title:
+                                          Text(prdt['Product Name']),
+                                          subtitle:
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  Text(prdt['image_url']),
+                                                  Text(prdt['Description']),
+                                                  Text(prdt['price']),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          
+                                         )),
+                          ),
+                        );
+                      });
+  }),
               ),
             ],
           ),

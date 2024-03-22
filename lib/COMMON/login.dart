@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/adviewsk.dart';
 import 'package:flutter_application_1/ADMIN/homeadmin.dart';
 import 'package:flutter_application_1/COLLEGE/clghome.dart';
+import 'package:flutter_application_1/COLLEGE/registration5.dart';
 import 'package:flutter_application_1/DIS-CO/homedisco.dart';
+import 'package:flutter_application_1/DIS-CO/registration3.dart';
+import 'package:flutter_application_1/STOREKEEPERS/registration2.dart';
 import 'package:flutter_application_1/USER/home.dart';
+import 'package:flutter_application_1/USER/registration.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
@@ -37,9 +41,15 @@ class _LoginState extends State<Login> {
     
       if (userSnapshot.docs.isNotEmpty) {
         var userid = userSnapshot.docs[0].id;
+        var usr=userSnapshot.docs[0]['name'];
+        var phn=userSnapshot.docs[0]['number'];
+        var mail=userSnapshot.docs[0]['Email_Id'];
         SharedPreferences sp = await SharedPreferences.getInstance();
         sp.setString('uid', userid);
-
+        sp.setString('name', usr);
+        sp.setString('number', phn);
+        sp.setString('Email_Id', mail);
+        
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
             return Mynavigationbar();
@@ -218,6 +228,33 @@ class _LoginState extends State<Login> {
                         border: OutlineInputBorder(), labelText: ('password')),
                   ),
                 ),
+              ),
+              Row( 
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell( onTap:() {
+                    if (widget.type=='user'){
+                      Navigator.push(context, MaterialPageRoute(builder:(context){
+                        return Registration();
+                      }));
+                    }
+                     else if (widget.type=='storekeepers'){
+                      Navigator.push(context, MaterialPageRoute(builder:(context){
+                        return registration2();
+                      }));
+                    }
+                     else if (widget.type=='college'){
+                      Navigator.push(context, MaterialPageRoute(builder:(context){
+                        return registration5();
+                      }));
+                    }
+                  else if (widget.type=='coordinators'){
+                      Navigator.push(context, MaterialPageRoute(builder:(context){
+                        return registration3();
+                      }));
+                    }
+                  }, child: Text("New Member?")),
+                ],
               ),
               SizedBox(height: 05),
               Padding(

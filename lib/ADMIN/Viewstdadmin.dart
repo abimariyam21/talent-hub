@@ -2,51 +2,19 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ADMIN/homeadmin.dart';
-
-// Data model for Student
-class Student {
-  final String name;
-  final String Mail_id;
-  final String phoneNumber;
-  final String details;
-
-  Student({
-    required this.name,
-    required this.Mail_id,
-    required this.phoneNumber,
-    required this.details,
-  });
-}
-
 class Viewstds extends StatefulWidget {
-  const Viewstds({Key? key}) : super(key: key);
+  const Viewstds({Key? key}) : super(key:key);
 
   @override
   State<Viewstds> createState() => _ViewstdsState();
 }
-
 class _ViewstdsState extends State<Viewstds> {
   Future<QuerySnapshot<Map<String,dynamic>>> getData() async {//backend 
     QuerySnapshot<Map<String,dynamic>> querySnapshot = await FirebaseFirestore.instance.collection('user').get();
     return querySnapshot;
   }
  
-  List<Student> students = [
-    Student(
-      name: 'John Doe',
-     Mail_id: 'mail',
-      phoneNumber: '+1234567890',
-      details:'Pensil drawings and water colour drawings',
-    ),
-    Student(
-      name: 'Juan',
-       Mail_id: 'mail',
-      phoneNumber: '+9876543210',
-      details: 'craft with frames',
-    ),
-  ];
-  
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -63,7 +31,7 @@ class _ViewstdsState extends State<Viewstds> {
                       return Adminhome();
                     }));
                   },
-                   child: Icon(Icons.close)), onPressed: () {  },
+                   child: Icon(Icons.close)), onPressed: () { },
                  
                 ),
               ),
@@ -95,9 +63,7 @@ class _ViewstdsState extends State<Viewstds> {
           }
 
           final user = snapshot.data?.docs ?? [];
-
-
-                return FutureBuilder(
+                 return FutureBuilder(
                   future: getData(),
                   builder: (context,snapshot) {
                     final user=snapshot.data!.docs??[];
@@ -108,28 +74,30 @@ class _ViewstdsState extends State<Viewstds> {
                         user[index].data();  
                         // user[index]['user'];
                                   final name = user[index]['name'];
-                                   final mail_id = user[index]['Email_Id']; 
-                                  final phoneNumber = user[index]['number'];
+                                   final Email_id = user[index]['Email_Id']; 
+                                  final number = user[index]['number'];
                                   final password = user[index]['password'];
+                                  print(name);
                         return Card(
                           elevation: 5,
                           color: Color.fromARGB(255, 144, 174, 196),
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 8),
                             child: ListTile(
-                              title: Text(students[index].name),
+                              title: Text(user[index]['name']),
                               subtitle: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Email_id: ${students[index].Mail_id}'),
-                                  Text('Number: ${students[index].phoneNumber}'),
-                                  Text('Details: ${students[index].details}'),
+                                  Text('user: ${user[index]['name']}'),
+                                  Text('Email_id: ${user[index]['Email_Id']}'),
+                                  Text('number: ${user[index]['number']}'),
+                                  Text('password: ${user[index]['password']}'),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: [
                                       ElevatedButton(
                                         onPressed: () {
-                                          
+                                           // Implement reject button functionality
                                         },
                                         child: Text('Approve'),
                                       ),
